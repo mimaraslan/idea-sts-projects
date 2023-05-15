@@ -9,7 +9,7 @@ public class AppOkulMerkez {
         ogrenci.adi = "Ali";
         ogrenci.soyadi = "Güneş";
 
-        System.out.println(ogrenci.numarasi);
+        System.out.println("Öğrenci NO: " + ogrenci.numarasi);
         System.out.println(ogrenci.adi);
         System.out.println(ogrenci.soyadi);
 
@@ -21,7 +21,6 @@ public class AppOkulMerkez {
         System.out.println(ogrenci2.numarasi
                 + " " + ogrenci2.adi
                 + " "  + ogrenci2.soyadi);
-
 
     }
 }
