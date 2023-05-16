@@ -1,2 +1,2 @@
 # idea-sts-projects
-Java eğitim projeleri
+Java eğitim projeleri kodları
