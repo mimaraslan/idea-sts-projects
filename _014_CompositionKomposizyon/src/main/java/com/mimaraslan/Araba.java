@@ -1,7 +1,5 @@
 package com.mimaraslan;
 
-import com.mimaraslan.Yakit;
-
 public class Araba {
     
   //  Yakit yakit = new Yakit();
