@@ -1,6 +1,6 @@
-package io.lolo;
+package io.lolo.v1;
 
-public class Muhendis  extends Personel{
+public class Muhendis  extends Personel {
 
     private String temelBeceri;
     private String calismaSekli;

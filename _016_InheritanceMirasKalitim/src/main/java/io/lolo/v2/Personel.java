@@ -1,6 +1,8 @@
-package io.lolo;
+package io.lolo.v2;
 
 public class Personel {
+
+    // ORTAK ALANLAR
     private String adi;
     private String soyadi;
     private String adres;
@@ -9,6 +11,7 @@ public class Personel {
     private int yas;
     private int maasKatSayi;
 
+    private long gorevTazminati;
 
 
     public String getAdi() {
@@ -68,4 +71,11 @@ public class Personel {
         this.maasKatSayi = maasKatSayi;
     }
 
+    public long getGorevTazminati() {
+        return gorevTazminati;
+    }
+
+    public void setGorevTazminati(long gorevTazminati) {
+        this.gorevTazminati = gorevTazminati;
+    }
 }

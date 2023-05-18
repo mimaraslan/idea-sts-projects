@@ -1,6 +1,6 @@
-package io.lolo;
+package io.lolo.v1;
 
-public class Mudur  extends Personel{
+public class Mudur  extends Personel {
 
     private String mudurDerecesi;
     private String yoneticiDepartman;

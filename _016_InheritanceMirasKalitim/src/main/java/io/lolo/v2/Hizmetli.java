@@ -1,11 +1,11 @@
-package io.lolo;
+package io.lolo.v2;
 
 import java.util.Arrays;
 
 public class Hizmetli extends Personel{
 
     private int [] katGorevAlani;
-    private long gorevTazminati;
+
 
     public int[] getKatGorevAlani() {
         return katGorevAlani;
@@ -13,14 +13,6 @@ public class Hizmetli extends Personel{
 
     public void setKatGorevAlani(int[] katGorevAlani) {
         this.katGorevAlani = katGorevAlani;
-    }
-
-    public long getGorevTazminati() {
-        return gorevTazminati;
-    }
-
-    public void setGorevTazminati(long gorevTazminati) {
-        this.gorevTazminati = gorevTazminati;
     }
 
 

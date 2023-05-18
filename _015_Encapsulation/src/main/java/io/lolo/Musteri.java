@@ -60,7 +60,7 @@ public class Musteri {
 
 
 
-
+    //Annotation
     @Override
     public String toString() {
         return "Musteri{" +
