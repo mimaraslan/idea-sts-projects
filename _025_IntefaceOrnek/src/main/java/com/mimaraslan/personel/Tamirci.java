@@ -1,4 +1,4 @@
 package com.mimaraslan.personel;
 
-public class Tamirci {
+public class Tamirci extends Personel{
 }
