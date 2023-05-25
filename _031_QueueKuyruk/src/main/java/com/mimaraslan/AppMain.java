@@ -17,6 +17,10 @@ public class AppMain {
         queue2.add("Gizem");
         System.out.println(queue2);
 
+        queue2.remove();
+        System.out.println(queue2);
+
+
         Queue queue3 = new PriorityQueue();
         queue3.add(3.14);
         queue3.add(5.18);
