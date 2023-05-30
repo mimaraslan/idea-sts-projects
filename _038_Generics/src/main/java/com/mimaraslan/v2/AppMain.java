@@ -1,6 +1,7 @@
 package com.mimaraslan.v2;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class AppMain {
 
@@ -19,10 +20,21 @@ public class AppMain {
         listeBanaOzel2.lisyeEkle(300);
         System.out.println(listeBanaOzel2.listeyiGetir());
 
-        for ( ListManager<String>  madde :  listeBanaOzel) {
-            System.out.println(madde);
+        ArrayList <String> listeYazdirilacak = listeBanaOzel.listeyiGetir();
+
+        for ( String madde: listeYazdirilacak) {
+            System.out.print (madde + " ");
         }
 
+        System.out.println("\n----------------------------");
+
+        for (int i = 0; i < listeYazdirilacak.size(); i++) {
+            System.out.print (listeYazdirilacak.get(i) + " ");
+        }
+
+        System.out.println("\n----------------------------");
+
+        listeYazdirilacak.forEach((madde) -> System.out.print (madde + " ") );
 
     }
 }
