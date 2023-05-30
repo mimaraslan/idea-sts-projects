@@ -1,4 +1,4 @@
-package com.mimaraslan;
+package com.mimaraslan.v1;
 
 
 // Generic class
