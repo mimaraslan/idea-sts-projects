@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class AppMain {
     public static void main(String[] args) {
-        
+
         Ogrenci ogrenci = new Ogrenci("Ali");
         System.out.println("id........: "+ ogrenci.getId());
         System.out.println("ad........: "+ ogrenci.getAd());
@@ -16,8 +16,6 @@ public class AppMain {
         ogrenci = new Ogrenci("Aysu");
         System.out.println("id........: "+ ogrenci.getId());
         System.out.println("ad........: "+ ogrenci.getAd());
-
-
 
         ogrenci = null;
       //  System.out.println(ogrenci.getAd());
