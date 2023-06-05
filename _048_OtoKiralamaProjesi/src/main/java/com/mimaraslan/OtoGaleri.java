@@ -15,7 +15,7 @@ public class OtoGaleri implements IOtoGaleri {
     private static List<Kiralama> kiralamalar = new ArrayList<>();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws OtoGaleriException {
         System.out.println(FIRMA_ADI + " Oto Galeri");
 
 /*
