@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class OtoGaleri implements IOtoGaleri {
 
@@ -14,41 +15,6 @@ public class OtoGaleri implements IOtoGaleri {
     private static List<Musteri> musteriler = new ArrayList<>();
     private static List<Kasiyer> karsiyerler = new ArrayList<>();
     private static List<Kiralama> kiralamalar = new ArrayList<>();
-
-
-    public static void main(String[] args) throws OtoGaleriException {
-        System.out.println(FIRMA_ADI + " Oto Galeri");
-
-/*
-        Musteri musteri1 = new Musteri(1, "Serkan");
-        Musteri musteri2 = new Musteri(2, "Burak");
-        Musteri musteri3 = new Musteri(3, "Osman");
-        Musteri musteri4 = new Musteri(4, "Gizem");
-*/
-
-        OtoGaleri otoGaleri = new OtoGaleri();
-        otoGaleri.arabaOlustur();
-        otoGaleri.kasiyerOlustur();
-        otoGaleri.musteriOlustur();
-
-        listeyeEkle(musteriler, new Musteri(5, "Aminenur"));
-        listeyeEkle(karsiyerler, new Kasiyer(4, "Abdullah", 33_000.0));
-        listeyeEkle(arabalar, new Araba(11, "Toyota"));
-
-        otoGaleri.kiralamaOlustur();
-
-
-try {
-    otoGaleri.arabaAra();
-    otoGaleri.kiralamaYap();
-    otoGaleri.musteriAra();
-    otoGaleri.kiralananArabaListesi();
-} catch (OtoGaleriException e){
-    System.out.println(e.getMesaj());
-}
-
-
-    }
 
 
 
@@ -167,9 +133,8 @@ try {
         3. Listeler (esnet dizi) istediğim kadar ekleme çıkarma yapabiliyorum.
         4. Akış (Stream)  - üzerinde daha kolay iş yapabilmek için. (Lambda söz dizimi)
         */
-
         arabalar.stream()
-                .filter(arabaParametresi -> arabaParametresi.getDurum().equals(EDurum.GALERIDE))
+                .filter(oto -> oto.getDurum().equals(EDurum.GALERIDE))
                 .forEach(sonucParametresi ->  {
                     System.out.println(sonucParametresi.getId() + " - " + sonucParametresi.getIsim() + " - " + sonucParametresi.getDurum());
                 } );
@@ -179,7 +144,7 @@ try {
         Araba araba = arabalar.get(arabaId - 1);
 
         if (araba.getDurum().equals(EDurum.KIRADA) ){
-            throw  new OtoGaleriException("Araba kirada. İşlem başarısız oldu.");
+            throw new OtoGaleriException("Araba kirada. İşlem başarısız oldu.");
         }else{
             Kiralama kiralama = new Kiralama(kiralamalar.size()+1, kasiyer, musteri, araba);
             kiralamalar.add(kiralama);
@@ -208,11 +173,131 @@ try {
 
     @Override
     public Musteri musteriAra() throws OtoGaleriException {
-        return null;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Lütfen musteri adını giriniz.");
+        String arananMusteri = scanner.nextLine();
+
+        Optional<Musteri> musteri = musteriler
+                .stream()
+                .filter(mus -> mus.getIsim().equalsIgnoreCase(arananMusteri)).findFirst();
+
+        if(musteri.isEmpty()){
+            throw new OtoGaleriException("Müşteri bulunamadı");
+        }
+
+        return musteri.get();
     }
 
     @Override
     public List<Araba> kiralananArabaListesi() throws OtoGaleriException {
-        return null;
+
+        List <Araba> kiralananArabalar = arabalar.stream()
+                .filter(oto -> oto.getDurum().equals(EDurum.KIRADA))
+                .collect(Collectors.toList());
+
+        if(kiralananArabalar.isEmpty()){
+            throw new OtoGaleriException("Şimdi kiralanan araba yok, bulunamadı");
+        }
+
+
+        return kiralananArabalar;
     }
+
+
+
+    public static void main(String[] args) throws OtoGaleriException {
+        System.out.println(FIRMA_ADI + " Oto Galeri");
+
+/*
+        Musteri musteri1 = new Musteri(1, "Serkan");
+        Musteri musteri2 = new Musteri(2, "Burak");
+        Musteri musteri3 = new Musteri(3, "Osman");
+        Musteri musteri4 = new Musteri(4, "Gizem");
+*/
+
+        OtoGaleri otoGaleri = new OtoGaleri();
+        otoGaleri.arabaOlustur();
+        otoGaleri.kasiyerOlustur();
+        otoGaleri.musteriOlustur();
+
+        listeyeEkle(musteriler, new Musteri(5, "Aminenur"));
+        listeyeEkle(musteriler, new Musteri(6, "Gani"));
+        listeyeEkle(musteriler, new Musteri(7, "Gani Ünal"));
+
+        listeyeEkle(karsiyerler, new Kasiyer(4, "Abdullah", 33_000.0));
+        listeyeEkle(arabalar, new Araba(11, "Toyota"));
+
+        otoGaleri.kiralamaOlustur();
+
+
+        try {
+          //  System.out.println(otoGaleri.kiralananArabaListesi());
+            otoGaleri.arabaAra();
+            otoGaleri.kiralamaYap();
+            otoGaleri.musteriAra();
+        } catch (OtoGaleriException e){
+            System.out.println(e.getMesaj());
+        }
+
+
+        System.out.println("-----------------------------------------");
+        System.out.println("Gan ile başlayan müşterilerin listesini bul.");
+      // System.out.println(ganIleBaslayanMusteriler());
+        ganIleBaslayanMusteriler().forEach(System.out::println);
+
+
+        // FIXME buraya bak.
+        System.out.println("-----------------------------------------");
+        System.out.println("Araba adına göre kiralayan müşteriler");
+        arabaAdinaGoreKirlayanMusteriler("BMW").forEach(System.out::println);
+
+        System.out.println("-----------------------------------------");
+        System.out.println("id bilgisi verilen müşterinin kiraladığı tüm arabaların listesi");
+        musteriIdyeGoreKiralananArabalar(1).forEach(System.out::println);;
+
+        System.out.println("-----------------------------------------");
+        System.out.println("id bilgisi verilmiş olan araba, kimin tarafından kiralanmış?");
+        arabaIdyeGoreKiralayanMusteriler(2).forEach(System.out::println);;
+    }
+
+
+    private static List<Musteri> ganIleBaslayanMusteriler() {
+        List<Musteri> musteriList = musteriler.stream()
+                .filter(m -> m.getIsim().startsWith("Gan"))
+                .collect(Collectors.toList());
+        return musteriList;
+    }
+
+    // FIXME buraya bak.
+    private static List<Musteri> arabaAdinaGoreKirlayanMusteriler(String arabaAdi) {
+        List<Musteri> musteriList = kiralamalar.stream()
+                .filter(oto ->oto.getAraba().getIsim().equalsIgnoreCase(arabaAdi))
+                .map(mus->mus.getMusteri())
+                .collect(Collectors.toList());
+        return musteriList;
+    }
+
+    private static List<Araba> musteriIdyeGoreKiralananArabalar(int musteriId) {
+      /*  List<Araba> arabaList = kiralamalar.stream().
+                filter(m->m.getMusteri().getId() == musteriId)
+                .map(oto ->oto.getAraba())
+                .collect(Collectors.toList());
+
+        return arabaList;
+        */
+        return kiralamalar.stream().
+                filter(m->m.getMusteri().getId() == musteriId)
+                .map(oto ->oto.getAraba())
+                .collect(Collectors.toList());
+    }
+
+
+    private static List<Musteri> arabaIdyeGoreKiralayanMusteriler(int arabaId) {
+        return kiralamalar.stream().
+                filter(oto->oto.getAraba().getId() == arabaId)
+                .map(m ->m.getMusteri())
+                .collect(Collectors.toList());
+    }
+
+
 }
