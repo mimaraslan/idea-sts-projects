@@ -2,6 +2,7 @@ package com.mimaraslan;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class OtoGaleri implements IOtoGaleri {
@@ -37,13 +38,14 @@ public class OtoGaleri implements IOtoGaleri {
         otoGaleri.kiralamaOlustur();
 
 
-
-        otoGaleri.arabaAra();
-        otoGaleri.kiralamaYap();
-        otoGaleri.kiralananArabaListesi();
-        otoGaleri.musteriAra();
-
-
+try {
+    otoGaleri.arabaAra();
+    otoGaleri.kiralamaYap();
+    otoGaleri.musteriAra();
+    otoGaleri.kiralananArabaListesi();
+} catch (OtoGaleriException e){
+    System.out.println(e.getMesaj());
+}
 
 
     }
@@ -116,19 +118,19 @@ public class OtoGaleri implements IOtoGaleri {
         Kiralama kiralama1 = new Kiralama(1, karsiyerler.get(0), musteriler.get(0), arabalar.get(0));
         arabalar.get(0).setDurum(EDurum.KIRADA);
 
-        Kiralama kiralama2 = new Kiralama(1, karsiyerler.get(1), musteriler.get(1), arabalar.get(1));
+        Kiralama kiralama2 = new Kiralama(2, karsiyerler.get(1), musteriler.get(1), arabalar.get(1));
         arabalar.get(1).setDurum(EDurum.KIRADA);
 
-        Kiralama kiralama3 = new Kiralama(1, karsiyerler.get(2), musteriler.get(2), arabalar.get(2));
+        Kiralama kiralama3 = new Kiralama(3, karsiyerler.get(2), musteriler.get(2), arabalar.get(2));
         arabalar.get(2).setDurum(EDurum.KIRADA);
 
-        Kiralama kiralama4 = new Kiralama(1, karsiyerler.get(0), musteriler.get(3), arabalar.get(3));
+        Kiralama kiralama4 = new Kiralama(4, karsiyerler.get(0), musteriler.get(3), arabalar.get(3));
         arabalar.get(3).setDurum(EDurum.KIRADA);
 
-        Kiralama kiralama5 = new Kiralama(1, karsiyerler.get(3), musteriler.get(4), arabalar.get(7));
+        Kiralama kiralama5 = new Kiralama(5, karsiyerler.get(3), musteriler.get(4), arabalar.get(7));
         arabalar.get(7).setDurum(EDurum.KIRADA);
 
-        Kiralama kiralama6 = new Kiralama(1, karsiyerler.get(0), musteriler.get(0), arabalar.get(10));
+        Kiralama kiralama6 = new Kiralama(6, karsiyerler.get(0), musteriler.get(0), arabalar.get(10));
         arabalar.get(10).setDurum(EDurum.KIRADA);
 
         listeyeEkle(kiralamalar, kiralama1);
@@ -147,11 +149,13 @@ public class OtoGaleri implements IOtoGaleri {
 
         System.out.print("Kasiyer id : ");
         int kasiyerId = Integer.parseInt(scanner.nextLine());
+        Kasiyer kasiyer = karsiyerler.get(kasiyerId-1);
 
         System.out.println("----------------------------------");
 
         System.out.print("Müşteri id : ");
         int musteriId = Integer.parseInt(scanner.nextLine());
+        Musteri musteri = musteriler.get(musteriId-1);
 
         System.out.println("----------------------------------");
 
@@ -174,12 +178,32 @@ public class OtoGaleri implements IOtoGaleri {
         int arabaId = Integer.parseInt(scanner.nextLine());
         Araba araba = arabalar.get(arabaId - 1);
 
-        return false;
+        if (araba.getDurum().equals(EDurum.KIRADA) ){
+            throw  new OtoGaleriException("Araba kirada. İşlem başarısız oldu.");
+        }else{
+            Kiralama kiralama = new Kiralama(kiralamalar.size()+1, kasiyer, musteri, araba);
+            kiralamalar.add(kiralama);
+            return true;
+        }
+
     }
 
     @Override
     public Araba arabaAra() throws OtoGaleriException {
-        return null;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Lütfen araba adını giriniz.");
+        String arananArabaMarkasi = scanner.nextLine();
+
+        Optional<Araba> araba = arabalar
+                .stream()
+                .filter(oto -> oto.getIsim().equalsIgnoreCase(arananArabaMarkasi)).findFirst();
+
+        if(araba.isEmpty()){
+            throw new OtoGaleriException("Araba bulunamadı");
+        }
+
+        return araba.get();
     }
 
     @Override
