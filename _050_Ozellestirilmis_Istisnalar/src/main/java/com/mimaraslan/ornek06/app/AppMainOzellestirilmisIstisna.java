@@ -32,15 +32,15 @@ public class AppMainOzellestirilmisIstisna {
 
        // ogrenciRepository.ogrenciAra(8L) ;
 
-        Ogrenci ogrenci = ogrenciRepository.ogrenciAra(8L).get();
+        Ogrenci ogrenci = ogrenciRepository.ogrenciAraId(8L).get();
         System.out.println(ogrenci.getId() + " " + ogrenci.getAd() + " " + ogrenci.getSoyad());
         System.out.println("---------------------------");
 
-        System.out.println(ogrenciRepository.ogrenciAra(8L));
+        System.out.println(ogrenciRepository.ogrenciAraId(8L));
 
-        System.out.println(ogrenciRepository.ogrenciAra(8L).toString());
+        System.out.println(ogrenciRepository.ogrenciAraId(8L).toString());
 
-        System.out.println(ogrenciRepository.ogrenciAra(8L).get());
+        System.out.println(ogrenciRepository.ogrenciAraId(8L).get());
         System.out.println("---------------------------");
 
         ogrenciRepository.ogrenciGuncelle(new Ogrenci(8L,"Gizem", "Kuşcuoğlu"));

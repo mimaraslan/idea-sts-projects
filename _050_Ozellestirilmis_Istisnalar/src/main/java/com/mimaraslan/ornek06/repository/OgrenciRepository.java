@@ -48,7 +48,7 @@ public class OgrenciRepository {
     }
 
 
-    public Optional<Ogrenci> ogrenciAra(Long id) throws OgrenciException {
+    public Optional<Ogrenci> ogrenciAraId(Long id) throws OgrenciException {
 
         Optional<Ogrenci> ogrenci = ogrenciListesi.stream()
                 .filter(ogr -> ogr.getId().equals(id))
