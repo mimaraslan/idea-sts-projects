@@ -9,8 +9,6 @@ public class Ogrenci {
     private String ad;
     private String soyad;
 
-    public Ogrenci() {
-    }
 
     public Ogrenci(String ad, String soyad) {
         this.id = sayac++;
@@ -46,5 +44,15 @@ public class Ogrenci {
 
     public void setSoyad(String soyad) {
         this.soyad = soyad;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Ogrenci{" +
+                "id=" + id +
+                ", ad='" + ad + '\'' +
+                ", soyad='" + soyad + '\'' +
+                '}';
     }
 }

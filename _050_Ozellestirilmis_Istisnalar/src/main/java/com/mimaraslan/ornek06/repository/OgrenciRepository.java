@@ -23,8 +23,6 @@ public class OgrenciRepository {
     }
 
 
-
-
     public List<Ogrenci> getOgrenciListesi() {
         return ogrenciListesi;
     }
@@ -35,6 +33,18 @@ public class OgrenciRepository {
 
     public void ogrenciGuncelle(Ogrenci ogrenci) {
 
+        Optional<Ogrenci> ogrenciBulunan = ogrenciListesi.stream()
+                .filter(ogr -> ogr.getId().equals(ogrenci.getId()))
+                .findFirst();
+
+        if(ogrenciBulunan.isPresent()) // VARLIGI KONTROL EDER
+        {
+            ogrenciBulunan.get().setAd(ogrenci.getAd());
+            ogrenciBulunan.get().setSoyad(ogrenci.getSoyad());
+        } else {
+            throw new OgrenciException(MesajTipleri.GUNECELLEME_YAPILAMADI);
+        }
+
     }
 
 
@@ -44,11 +54,11 @@ public class OgrenciRepository {
                 .filter(ogr -> ogr.getId().equals(id))
                 .findFirst();
 
-        if (ogrenci.isEmpty()){
+        if (ogrenci.isEmpty()){ // YOKLUGU KONTROLE EDER
             throw new OgrenciException(MesajTipleri.ARANAN_BULUNAMADI);
         }
 
-                return ogrenci;
+       return ogrenci;
      }
 
 
