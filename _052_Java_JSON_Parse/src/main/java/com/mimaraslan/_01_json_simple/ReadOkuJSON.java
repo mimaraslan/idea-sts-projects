@@ -22,7 +22,7 @@ public class ReadOkuJSON {
             JSONArray calisanlarListesi = (JSONArray) obj;
             System.out.println(calisanlarListesi);
 
-           calisanlarListesi.forEach(calisan -> calisanlariYazParse( (JSONObject) calisan));
+           calisanlarListesi.forEach(calisan -> calisanlariYazParse(    (JSONObject) calisan    )    );
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -35,20 +35,23 @@ public class ReadOkuJSON {
 
     /*  calisanlar.json
 
-{"calisanlar":[
-  { "adi":"Serkan", "soyadi":"Zorlu", "yas":25 },
-  { "adi":"Burak", "soyadi":"Delice", "yas":33 },
-  { "adi":"Mehmet", "soyadi":"Caner", "yas":28 }
-]}
+[
+{"calisanlar":
+    {"adi":"Serkan","soyadi":"Zorlu","yas":25}},
+{"calisanlar":
+    {"adi":"Burak","soyadi":"Delice","yas":33}}
+]
     */
     private static void calisanlariYazParse(JSONObject calisan) {
 
-        JSONObject calisanObj = (JSONObject) calisan.get("calisan");
+        JSONObject calisanObj = (JSONObject) calisan.get("calisanlar");
 
         String adi = (String) calisanObj.get("adi");
         String soyadi = (String) calisanObj.get("soyadi");
-        Integer yas = (Integer) calisanObj.get("yas");
+        Long yas = (Long) calisanObj.get("yas");
+       // String yas = calisanObj.get("yas").toString();
 
+        System.out.println("-----------------------------------");
         System.out.println("ADI: " + adi);
         System.out.println("SOYADI: " + soyadi);
         System.out.println("YASI: " + yas);
