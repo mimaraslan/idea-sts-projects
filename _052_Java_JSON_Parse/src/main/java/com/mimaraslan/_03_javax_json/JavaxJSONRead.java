@@ -28,7 +28,6 @@ public class JavaxJSONRead {
             System.out.println(calisanObj.getString("departman"));
             System.out.println(calisanObj.get("maas"));
 
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
