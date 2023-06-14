@@ -27,8 +27,8 @@ public class AppMain {
 
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
-        ScheduledFuture<?> scheduledFuture1 = scheduledExecutorService.schedule(runnable1, 10, TimeUnit.SECONDS);
-        ScheduledFuture<?> scheduledFuture2 = scheduledExecutorService.schedule(runnable2, 4, TimeUnit.SECONDS);
+        ScheduledFuture<?> scheduledFuture1 = scheduledExecutorService.schedule(runnable1, 8, TimeUnit.SECONDS);
+        ScheduledFuture<?> scheduledFuture2 = scheduledExecutorService.schedule(runnable2, 3, TimeUnit.SECONDS);
 
     }
 }
