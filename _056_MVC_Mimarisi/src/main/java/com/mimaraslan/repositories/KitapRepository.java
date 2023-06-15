@@ -1,2 +1,4 @@
-package com.mimaraslan.repositories;public class KitapRepository {
+package com.mimaraslan.repositories;
+
+public class KitapRepository {
 }

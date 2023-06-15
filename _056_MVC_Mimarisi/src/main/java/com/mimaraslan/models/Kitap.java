@@ -1,2 +1,4 @@
-package com.mimaraslan.models;public class Kitap {
+package com.mimaraslan.models;
+
+public class Kitap {
 }

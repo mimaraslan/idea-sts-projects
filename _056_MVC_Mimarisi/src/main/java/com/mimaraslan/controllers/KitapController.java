@@ -1,2 +1,4 @@
-package com.mimaraslan.controllers;public class KitapController {
+package com.mimaraslan.controllers;
+
+public class KitapController {
 }
