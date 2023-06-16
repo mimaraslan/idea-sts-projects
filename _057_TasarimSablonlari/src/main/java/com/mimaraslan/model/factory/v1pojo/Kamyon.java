@@ -13,5 +13,4 @@ public class Kamyon extends Tasima{
 		
 	}
 
-	
 }

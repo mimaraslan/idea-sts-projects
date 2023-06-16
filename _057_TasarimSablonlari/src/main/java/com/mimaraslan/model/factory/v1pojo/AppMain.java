@@ -6,11 +6,6 @@ public class AppMain {
 	
 		/**
 		 * Factory Design Pattern
-		 */
-		
-		//Tasima tasima = new Gemi();
-		//tasima = new Kamyon();
-		/**
 		 *  1- TasimaTipi
 		 *  2- Tasima
 		 *  3- Gemi,Kamyon,Kamyonet
@@ -37,6 +32,5 @@ public class AppMain {
 		System.out.println(tasima);
 
 
-
-	}//
-}//
+	}
+}

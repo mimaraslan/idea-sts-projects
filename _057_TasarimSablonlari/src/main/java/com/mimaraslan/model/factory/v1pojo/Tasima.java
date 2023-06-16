@@ -23,4 +23,5 @@ public abstract class Tasima {
 	public void setTasimaTipi(TasimaTipi tasimaTipi) {
 		this.tasimaTipi = tasimaTipi;
 	}
+
 }
