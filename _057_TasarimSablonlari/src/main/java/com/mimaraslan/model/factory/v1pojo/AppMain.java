@@ -8,7 +8,7 @@ public class AppMain {
 		 * Factory Design Pattern
 		 *  1- TasimaTipi
 		 *  2- Tasima
-		 *  3- Gemi,Kamyon,Kamyonet
+		 *  3- Ucak, Gemi, Kamyon, Kamyonet
 		 *  4- TasimaFactory
 		 *  5- AppMain
 		 */
