@@ -5,7 +5,7 @@ public class AppMain {
 	public static void main(String[] args) {
 	
 		/**
-		 * Factory Design Patern,
+		 * Factory Design Pattern
 		 */
 		
 		//Tasima tasima = new Gemi();
