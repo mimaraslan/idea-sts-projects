@@ -1,7 +1,7 @@
-package com.mimaraslan.model.v2singleton;
+package com.mimaraslan.model.singleton.v2singleton;
 
 public class Urun {
-    private static Urun nesne = null;
+    private static volatile Urun nesne = null;
     private Long id;
     private String adi;
     private Double fiyati;

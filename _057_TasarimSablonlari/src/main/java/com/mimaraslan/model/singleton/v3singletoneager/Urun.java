@@ -1,4 +1,4 @@
-package com.mimaraslan.model.v3singletoneager;
+package com.mimaraslan.model.singleton.v3singletoneager;
 
 public class Urun {
     private static Urun nesne = new Urun();

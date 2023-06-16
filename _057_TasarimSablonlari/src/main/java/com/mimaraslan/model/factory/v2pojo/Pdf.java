@@ -1,2 +1,4 @@
-package com.mimaraslan.model.factory.v2pojo;public class Pdf {
+package com.mimaraslan.model.factory.v2pojo;
+
+public class Pdf {
 }

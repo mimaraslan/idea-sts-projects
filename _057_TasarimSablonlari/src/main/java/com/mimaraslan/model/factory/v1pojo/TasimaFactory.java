@@ -1,2 +1,4 @@
-package com.mimaraslan.model.factory.v1pojo;public class TasimaFactory {
+package com.mimaraslan.model.factory.v1pojo;
+
+public class TasimaFactory {
 }

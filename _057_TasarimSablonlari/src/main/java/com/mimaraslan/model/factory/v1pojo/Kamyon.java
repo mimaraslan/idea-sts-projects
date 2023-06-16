@@ -1,2 +1,4 @@
-package com.mimaraslan.model.factory.v1pojo;public class Kamyon {
+package com.mimaraslan.model.factory.v1pojo;
+
+public class Kamyon {
 }

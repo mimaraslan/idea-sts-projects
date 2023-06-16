@@ -1,2 +1,3 @@
-package com.mimaraslan.model.factory.v1pojo;public enum TasimaTipi {
+package com.mimaraslan.model.factory.v1pojo;
+enum TasimaTipi {
 }
