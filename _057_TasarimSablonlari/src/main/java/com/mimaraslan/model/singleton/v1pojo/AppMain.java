@@ -1,4 +1,4 @@
-package com.mimaraslan.model.v1pojo;
+package com.mimaraslan.model.singleton.v1pojo;
 
 public class AppMain {
     public static void main(String[] args) {
