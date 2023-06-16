@@ -1,3 +1,7 @@
 package com.mimaraslan.model.factory.v1pojo;
-enum TasimaTipi {
+
+public enum TasimaTipi {
+	KARA,
+	HAVA,
+	DENIZ
 }
