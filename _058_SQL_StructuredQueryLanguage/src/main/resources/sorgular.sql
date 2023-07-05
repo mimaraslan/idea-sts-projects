@@ -99,11 +99,11 @@ SELECT * FROM customers
 ORDER BY first_name;
 -- ORDER BY first_name ASC;
 
--- ASC 0'da 9'a göre siralama
+-- ASC 0'dan 9'a göre siralama
 SELECT * FROM customers 
 ORDER BY age;
 
--- siralama birden fazla durumu dikkate alarak    ASC
+-- Siralama birden fazla kolonu dikkate alarak    ASC
 SELECT * FROM customers 
 ORDER BY country, age;
 
@@ -117,11 +117,11 @@ ORDER BY first_name DESC;
 SELECT * FROM customers 
 ORDER BY age DESC;
 
--- Tersten siralama birden fazla durumu dikkate alarak    DESC
+-- Tersten siralama birden fazla kolonu dikkate alarak    DESC
 SELECT * FROM customers 
 ORDER BY country DESC, age DESC;
 
--- ülke kolonunu seçtik.
+-- sadece ülke country kolonunu seçtik.
 SELECT country FROM customers;
 
 -- ÜLKE adi (kisi sayisi)  Gruplamalarda 1 kolonu seçiniz.
