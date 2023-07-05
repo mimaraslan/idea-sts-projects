@@ -1,6 +1,6 @@
 SELECT * FROM customers
 WHERE country = 'DE';
-select * FROM customers
+select * FROM customers;
 
 -- Ulkesi Almanya olmayanlar
 SELECT * FROM customers WHERE NOT country = 'DE';
@@ -34,7 +34,7 @@ SELECT CONCAT(first_name, ' ', last_name) userName FROM customers;
 
 -- tabloya yeni bir kayıt ekleyelim.
 INSERT INTO customers(first_name, last_name, phone, country, age)
-VALUES ('AAA', 'BBB', '111', 'TR', 25)
+VALUES ('AAA', 'BBB', '111', 'TR', 25);
 
 SELECT * FROM customers;
 
@@ -47,8 +47,10 @@ VALUES ('CCC', 'BBB', '111', 'TR', 32),
 SELECT * FROM customers;
 
 -- SAKIN BOYLE ID DEGERI BELIRTILMEYEN UPDATE YAP - MA - YIN.
-UPDATE customers
-SET age = 34;
+/*
+ UPDATE customers
+ SET age = 34;
+*/
 
 -- gunceleme edit update once id degerini belirtmemiz lazim     ŞART customer_id =6
 UPDATE customers
@@ -90,7 +92,7 @@ SELECT * FROM customers;
 
 
 -- DİKKAT!!!! Tabloyu fabrika cikisi hale getirir. Her şeyi SIFIRlar.
-TRUNCATE TABLE customers;
+-- TRUNCATE TABLE customers;
 
 
 -- ASC varsayılan değerdir. A'dan Z'ye siralama için -  0'dan 9'a sıralama 
@@ -122,10 +124,10 @@ ORDER BY age DESC;
 SELECT * FROM customers 
 ORDER BY country DESC, age DESC;
 
--- ülke konolonu seçtik.
+-- ülke kolonunu seçtik.
 SELECT country FROM customers;
 
--- ÜLKE adi (KİŞİ sayisi)  Gruplamalarda 1 kolonu seçiniz.
+-- ÜLKE adi (kisi sayisi)  Gruplamalarda 1 kolonu seçiniz.
 SELECT country,  COUNT(*) AS numbers FROM customers
 GROUP BY country;
 
