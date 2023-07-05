@@ -10,7 +10,6 @@ SELECT DISTINCT country FROM customers;
 
 
 -- yası 25 ten buyuk olanlari goster.
-
 SELECT * FROM customers
 WHERE age > 25;
 
@@ -107,8 +106,6 @@ ORDER BY age;
 -- siralama birden fazla durumu dikkate alarak    ASC
 SELECT * FROM customers 
 ORDER BY country, age;
-
-
 
 
 
