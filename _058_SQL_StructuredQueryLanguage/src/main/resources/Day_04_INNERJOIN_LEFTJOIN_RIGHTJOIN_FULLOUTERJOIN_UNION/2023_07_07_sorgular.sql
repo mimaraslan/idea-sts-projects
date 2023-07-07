@@ -10,8 +10,8 @@ SELECT * FROM shippings;
 
 /*
 SELECT KOLONLAR
-FROM TABLO1
-JOIN TABLO2
+FROM TABLO1_A
+JOIN TABLO2_B
 ON ŞART
 */
 
@@ -70,3 +70,9 @@ FROM customers c
 LEFT JOIN orders o
 ON o.customer_id = c.customer_id
 WHERE o.amount >500;
+
+
+SELECT c.customer_id, c.first_name, c.last_name,     o.item, o.amount, o.customer_id
+FROM customers c
+FULL OUTER JOIN orders o
+ON c.customer_id = o.customer_id;
