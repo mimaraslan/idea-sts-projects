@@ -82,7 +82,6 @@ FROM customers c
 RIGHT JOIN orders o
 ON o.customer_id = c.customer_id;
 
-
 -- AS sözcüğünü sildik ve öyle lakap kullandık. Bazı kolonları seçtik.
 -- Soldaki tablo customers   sağdaki tablo  orders
 -- RIGHT JOIN sağdaki tabolunun tamamini çıktıya dahil eder. Soldaki tablodan da kesişimin içinde olanlari sadece alır.
