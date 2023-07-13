@@ -9,7 +9,12 @@ public class JdbcUpdatePostgreSql {
     static final String PASSWORD = "123456789";
     static final String QUERY_SELECT_MUSTERI_ALL = "SELECT * FROM tblmusteri";
 
-    static final String QUERY_UPDATE_MUSTERI_BY_ID = "SELECT * FROM tblmusteri";
+    static final String QUERY_UPDATE_MUSTERI_BY_ID = "UPDATE tblmusteri " +
+            "SET " +
+            "ad='Gizem', " +
+            "soyadi='Kuşçuoğlu', " +
+            "aciklama='Gizem.Kuşçuoğlu@aaaa.com' " +
+            "WHERE id = 1;";
 
 
     public static void main(String[] args) throws SQLException {
@@ -17,9 +22,12 @@ public class JdbcUpdatePostgreSql {
         try (
                 Connection  connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(QUERY_SELECT_MUSTERI_ALL);
         ) {
 
+            statement.executeUpdate(QUERY_UPDATE_MUSTERI_BY_ID);
+
+            // Konsolda sonuclari gormek icin kullandik.
+            ResultSet resultSet = statement.executeQuery(QUERY_SELECT_MUSTERI_ALL);
             while (resultSet.next()) {
                 System.out.println(resultSet.getInt("id") + " - " + resultSet.getString("ad") + " " + resultSet.getString("soyadi"));
             }
