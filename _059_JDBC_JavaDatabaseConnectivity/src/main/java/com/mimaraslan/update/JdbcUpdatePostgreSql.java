@@ -11,10 +11,10 @@ public class JdbcUpdatePostgreSql {
 
     static final String QUERY_UPDATE_MUSTERI_BY_ID = "UPDATE tblmusteri " +
             "SET " +
-            "ad='Gizem', " +
-            "soyadi='Kuşçuoğlu', " +
-            "aciklama='Gizem.Kuşçuoğlu@aaaa.com' " +
-            "WHERE id = 1;";
+            "ad='Aysu1111111', " +
+            "soyadi='Çağışlar', " +
+            "aciklama='Aysu.Çağışlar@aaaa.com' " +
+            "WHERE id = 2;";
 
 
     public static void main(String[] args) throws SQLException {
