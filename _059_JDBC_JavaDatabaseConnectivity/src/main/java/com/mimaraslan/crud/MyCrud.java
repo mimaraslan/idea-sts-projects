@@ -44,7 +44,7 @@ public class MyCrud {
     }
 
 
-    // update, insert, delete
+    // UPDATE (update, insert, delete)
     void executeQuery(String sql) throws SQLException {
        if (openConnection()){
            preparedStatement = connection.prepareStatement(sql);
@@ -55,7 +55,7 @@ public class MyCrud {
        }
     }
 
-    // select
+    // READ (select)
      ResultSet findFromTableRecordAll(String sql) throws SQLException {
         if (openConnection()){
             preparedStatement = connection.prepareStatement(sql);
