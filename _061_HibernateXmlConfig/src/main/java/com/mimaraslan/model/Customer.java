@@ -2,21 +2,26 @@ package com.mimaraslan.model;
 
 import javax.persistence.*;
 import java.util.Date;
-@Entity
-@Table (name = "CUSTOMER")
+
+//@Entity
+//@Table (name = "CUSTOMER")
 public class Customer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
-    @Column (name = "ID", nullable = false)
+  //  @Id
+  //  @GeneratedValue(strategy = GenerationType.IDENTITY )
+  //  @Column (name = "ID", nullable = false)
     private int id;
-    @Column(name = "FIRST_NAME" , length = 40 , nullable = false)
+
+ //   @Column(name = "FIRST_NAME" , length = 40 , nullable = false)
     private String firstname;
-    @Column(name = "LAST_NAME" , length = 60)
+
+  //  @Column(name = "LAST_NAME" , length = 60)
     private String lastname;
-    @Column(name = "ADDRESS" , length = 30)
+
+  //  @Column(name = "ADDRESS" , length = 30)
     private String address;
-    @Column(name = "CREATION_DATE")
+
+  //  @Column(name = "CREATION_DATE")
     private Date creationDate;
 
 
