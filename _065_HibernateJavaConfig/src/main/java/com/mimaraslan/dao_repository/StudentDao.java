@@ -15,7 +15,7 @@ public class StudentDao {
             session.save(student);
             transaction.commit();
         } catch (Exception e) {
-
+            System.out.println("Hata: "+ e);
             if (transaction != null) {
                 transaction.rollback();
             }

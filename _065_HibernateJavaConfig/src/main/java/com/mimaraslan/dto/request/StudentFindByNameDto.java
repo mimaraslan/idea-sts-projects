@@ -1,14 +1,14 @@
-package com.mimaraslan.dto;
-public class StudentDto {
+package com.mimaraslan.dto.request;
+public class StudentFindByNameDto {
     private String firstname;
 
     private String lastname;
 
 
-    public StudentDto() {
+    public StudentFindByNameDto() {
     }
 
-    public StudentDto(String firstname, String lastname) {
+    public StudentFindByNameDto(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
 

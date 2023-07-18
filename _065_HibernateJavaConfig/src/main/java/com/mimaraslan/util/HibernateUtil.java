@@ -3,6 +3,7 @@ package com.mimaraslan.util;
 import java.util.Properties;
 
 import com.mimaraslan.model_entity.Student;
+import com.mimaraslan.model_entity.Teacher;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -37,13 +38,14 @@ public class HibernateUtil {
 
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.HBM2DDL_AUTO, "create");
-                settings.put(Environment.FORMAT_SQL, "true");
+                //  settings.put(Environment.FORMAT_SQL, "true");
 
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
                 configuration.setProperties(settings);
 
                 configuration.addAnnotatedClass(Student.class);
+                configuration.addAnnotatedClass(Teacher.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties())

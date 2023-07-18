@@ -1,58 +1,57 @@
 package com.mimaraslan.model_entity;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;  // for Hibarnete 6
+ import javax.persistence.*; // for Hibarnete 5
 
 @Entity
-@Table(name = "student")
+@Table(name="STUDENT")
 public class Student {
-/*
-    @Id
-    @GeneratedValue (strategy = GenerationType.UUID)
-    private String id; // 9c64ff79-c4b5-478d-b691-fd5dbed0dd41
-*/
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer id; // 1 2 3 4 5
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="ID")
+    private int id;
 
-    @Column(name = "FIRST_NAME")
-    private String firstname;
+    @Column(name="FIRST_NAME")
+    private String firstName;
 
-    private String lastname;
+    @Column(name="LAST_NAME")
+    private String lastName;
 
+    @Column(name="EMAIL")
     private String email;
 
     public Student() {
     }
 
-    public Student(String firstname, String lastname, String email) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public Student(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -64,4 +63,18 @@ public class Student {
     }
 
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Student{");
+        sb.append("id=").append(id);
+        sb.append(", firstName='").append(firstName).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
+
+
+
+
