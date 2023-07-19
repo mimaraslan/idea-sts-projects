@@ -20,8 +20,8 @@ public class Orders {
     @Column(name = "ORDER_ID", nullable = false)
     private int id;
 
-    @Column(length = 40)
-    private String productCode;
+    @Column(name = "CODE", length = 40)
+    private String code;
 
     @Column(name = "AMOUNT", precision = 10, scale = 2)
     private float amount;
@@ -33,8 +33,8 @@ public class Orders {
     public Orders() {
     }
 
-    public Orders(String productCode, float amount, Date orderDate) {
-        this.productCode = productCode;
+    public Orders(String code, float amount, Date orderDate) {
+        this.code = code;
         this.amount = amount;
         this.orderDate = orderDate;
     }
@@ -55,12 +55,12 @@ public class Orders {
         this.id = id;
     }
 
-    public String getProductCode() {
-        return productCode;
+    public String getCode() {
+        return code;
     }
 
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public void setCode(String productCode) {
+        this.code = code;
     }
 
     public float getAmount() {

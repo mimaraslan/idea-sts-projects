@@ -14,12 +14,12 @@ public class AppMain {
 
         Customer customer = new Customer();
         customer.setTitle("Dr.");
-        customer.setFirstName("Caner");
-        customer.setLastName("Öksüz");
+        customer.setFirstName("Mehmet");
+        customer.setLastName("Caner");
 
-        Orders order1 = new Orders("Kayısı", 254.223F, new Date());
-        Orders order2 = new Orders("Elma", 173.5234F, new Date());
-        Orders order3 = new Orders("Armut", 395.234F, new Date());
+        Orders order1 = new Orders("Kayısı", 100.11F, new Date());
+        Orders order2 = new Orders("Elma", 200.22F, new Date());
+        Orders order3 = new Orders("Armut", 300.33F, new Date());
 
         customer.getOrder().add(order1);
         customer.getOrder().add(order2);
