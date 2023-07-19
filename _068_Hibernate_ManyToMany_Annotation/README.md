@@ -1,7 +1,6 @@
 # JPA Hibernate 
 ## @ManyToMany Annotation
 
-
 ![RDBMS](src/main/resources/images/01.jpg)
 
 ![RDBMS](src/main/resources/images/02.jpg)

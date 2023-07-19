@@ -17,8 +17,8 @@ public class AppMain {
 
         Customer customer1 = new Customer();
         customer1.setTitle("Dr");
-        customer1.setFirstName("Caner");
-        customer1.setLastName("Öksüz");
+        customer1.setFirstName("Mehmet");
+        customer1.setLastName("Caner");
 
         Customer customer2 = new Customer();
         customer2.setTitle("Dr");
@@ -36,7 +36,7 @@ public class AppMain {
         customer1.getAddresses().add(address2);
         customer2.getAddresses().add(address3);
 
-        Customer customer3 = new Customer("Doc", "Ünal", "Berk", addressesList);
+        Customer customer3 = new Customer("Doç. Dr.", "Ünal", "Berk", addressesList);
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
