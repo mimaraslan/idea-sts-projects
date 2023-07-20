@@ -16,8 +16,7 @@ public class HibernateUtil {
             serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             configuration.buildSessionFactory(serviceRegistry);
         } catch (Exception e) {
-            System.err.println("Hata : " + e);
-            throw new ExceptionInInitializerError(e);
+            System.err.println("Hata: " + e);
         }
     }
 

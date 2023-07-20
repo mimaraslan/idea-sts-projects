@@ -16,17 +16,14 @@ public class CustomerDetail {
 
     @Id
     @GeneratedValue(generator = "generator")
-    @GenericGenerator(name = "generator", strategy = "foreign",
-            parameters = @Parameter(name = "property", value = "customer"))
-    @Column(name = "CUSTOMER_ID", nullable = false)
+    @GenericGenerator(name = "generator",strategy = "foreign",
+            parameters = @Parameter(name = "property",value = "customer"))
+    @Column (name = "CUSTOMER_ID", nullable = false)
     private int customerId;
-
     @Column(name = "ADDRESS", length = 50)
     private String address;
-
     @Column(name = "PHONE", length = 20, nullable = false)
     private String phone;
-
     @Column(name = "CREATION_DATE")
     private Date creationDate;
 
@@ -77,5 +74,16 @@ public class CustomerDetail {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerDetail{" +
+                "customer=" + customer +
+                ", customerId=" + customerId +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", creationDate=" + creationDate +
+                '}';
     }
 }

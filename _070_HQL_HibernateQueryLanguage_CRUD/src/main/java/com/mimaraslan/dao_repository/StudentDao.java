@@ -4,8 +4,8 @@ import com.mimaraslan.model_entity.Student;
 import com.mimaraslan.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
-import javax.persistence.Query;
 import java.util.List;
 
 public class StudentDao {
@@ -35,7 +35,7 @@ public class StudentDao {
     // SQL'deki normal INSERT deyimine dikkat! HQL onu SQL'deki gibi kullanmaz!
     // Normal 1 tane kayıt ekleyeceksiniz, eklemeyi session.save(Object) yöntemi ile yaparız.
     // HQL'deki INSERT sadece toplu veriler eklemek içindir.
-    public void insertStudent(Student student) {
+    public void insertStudent() {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
@@ -145,12 +145,14 @@ public class StudentDao {
 
 
             // FIXME tekil dönüş için
-            List results =  query.getResultList();
+          /*  List results =  query.getResultList();
 
             if((results != null) && (!results.isEmpty())){
                 student = (Student) results.get(0);
             }
+            */
 
+            student = (Student) query.uniqueResult();
 
             transaction.commit();
 
@@ -168,7 +170,7 @@ public class StudentDao {
     // read all - select
     public List<Student> getStudents() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("from Student", Student.class).list();
+            return session.createQuery("from Student order by id asc", Student.class).list();
         }
     }
 }

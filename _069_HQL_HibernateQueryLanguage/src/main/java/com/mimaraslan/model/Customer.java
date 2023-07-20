@@ -23,6 +23,7 @@ public class Customer {
     @Column(name = "LAST_NAME", length = 60)
     private String lastname;
 
+
     public Customer() {
     }
 
@@ -72,5 +73,13 @@ public class Customer {
         this.lastname = lastname;
     }
 
-
+    @Override
+    public String toString() {
+        return "Customer{" +
+                ", customerId=" + customerId +
+                ", title='" + title + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
+    }
 }
