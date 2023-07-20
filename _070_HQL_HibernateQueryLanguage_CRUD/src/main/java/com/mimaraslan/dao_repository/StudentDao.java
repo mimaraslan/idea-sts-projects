@@ -145,7 +145,8 @@ public class StudentDao {
             Query query = session.createQuery(hql);
             query.setParameter("id", id);
 
-           /*
+            // liste dönüş için
+            /*
             List results =  query.getResultList();
 
             if((results != null) && (!results.isEmpty())){
