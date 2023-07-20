@@ -19,11 +19,11 @@ public class StudentDao {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
             transaction = session.beginTransaction();
-                 session.save(student);
+            session.save(student);
             transaction.commit();
 
         } catch (Exception e) {
-            System.out.println("Hata: "+ e);
+            System.out.println("Hata: " + e);
             if (transaction != null) {
                 transaction.rollback();
             }
@@ -51,7 +51,7 @@ public class StudentDao {
                     "SELECT firstName, lastName, email FROM Student WHERE id = 1"; // SECILEN TABLO
 
             //Seçilen tablodaki birden fazla kaydı diğer hedef tabloya eklemek için INSERT kullanımı.
-            String hqlMultiRows ="INSERT INTO Student(firstName, lastName, email) " + // HEDEF TABLO
+            String hqlMultiRows = "INSERT INTO Student(firstName, lastName, email) " + // HEDEF TABLO
                     "SELECT firstName, lastName, email FROM Student where id BETWEEN 1 AND 4"; // SECILEN TABLO
 
             //Seçilen tablodaki bütün katıtları diğer hedef tabloya eklemek için INSERT kullanımı.
@@ -66,7 +66,7 @@ public class StudentDao {
             transaction.commit();
 
         } catch (Exception e) {
-            System.out.println("Hata: "+ e);
+            System.out.println("Hata: " + e);
             if (transaction != null) {
                 transaction.rollback();
             }
@@ -98,7 +98,7 @@ public class StudentDao {
             transaction.commit();
 
         } catch (Exception e) {
-            System.out.println("Hata: "+ e);
+            System.out.println("Hata: " + e);
             if (transaction != null) {
                 transaction.rollback();
             }
@@ -123,7 +123,7 @@ public class StudentDao {
             transaction.commit();
 
         } catch (Exception e) {
-            System.out.println("Hata: "+ e);
+            System.out.println("Hata: " + e);
             if (transaction != null) {
                 transaction.rollback();
             }
@@ -132,8 +132,10 @@ public class StudentDao {
     }
 
     public Student getStudent(int id) {
+
         Student student = null;
         Transaction transaction = null;
+
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
             transaction = session.beginTransaction();
@@ -143,21 +145,20 @@ public class StudentDao {
             Query query = session.createQuery(hql);
             query.setParameter("id", id);
 
-
-            // FIXME tekil dönüş için
-          /*  List results =  query.getResultList();
+           /*
+            List results =  query.getResultList();
 
             if((results != null) && (!results.isEmpty())){
                 student = (Student) results.get(0);
             }
             */
 
+            // tekil dönüş için
             student = (Student) query.uniqueResult();
 
             transaction.commit();
-
         } catch (Exception e) {
-            System.out.println("Hata: "+ e);
+            System.out.println("Hata: " + e);
             if (transaction != null) {
                 transaction.rollback();
             }
@@ -173,4 +174,5 @@ public class StudentDao {
             return session.createQuery("from Student order by id asc", Student.class).list();
         }
     }
+
 }
