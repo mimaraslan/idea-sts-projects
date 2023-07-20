@@ -10,7 +10,8 @@ import java.util.List;
 
 public class StudentDao {
 
-    // save - insert
+    // save == insert
+    // HQL normal INSERT deyimini desteklemez. Eklemeyi session.save(Object) yöntemi ile yaparız.
     public void saveStudent(Student student) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -28,18 +29,27 @@ public class StudentDao {
         }
     }
 
-    public void insertStudent() {
+
+    // HQL normal INSERT deyimini desteklemez. Eklemeyi session.save(Object) yöntemi ile yaparız.
+    // HQL'deki Insert sadece toplu veriler eklemek içindir.
+    public void insertStudent(Student student) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
             transaction = session.beginTransaction();
 
 
+            //Inserting only one record.
+            String hqlOneRow = "INSERT INTO Student(firstName, lastName, email) SELECT firstName, lastName, email  FROM Student where id = 1";
+
+            //Inserting multiple records.
+            String hqlMultiRows ="INSERT INTO Student(firstName, lastName, email) SELECT firstName, lastName, email  FROM Student where id between 1 and 4";
+
+            //Inserting multiple all records.
             String hql = "INSERT INTO Student(firstName, lastName, email) " +
                     "SELECT firstName, lastName, email FROM Student";
-
+            
             Query query = session.createQuery(hql);
-            // FIXME INSERT sorgusunu parametreli hale çevir
 
             int result = query.executeUpdate();
             System.out.println("Insert sonuc: " + result);

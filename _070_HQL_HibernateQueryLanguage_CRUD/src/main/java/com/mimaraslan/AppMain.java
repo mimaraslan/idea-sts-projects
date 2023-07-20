@@ -23,7 +23,8 @@ public class AppMain {
         studentDao.saveStudent(student3);
         studentDao.saveStudent(student4);
 
-      //  studentDao.insertStudent();
+
+        studentDao.insertStudent(new Student("Demo", "Lolo","yyy@gmail.com"));
 
 
         Student student5 = new Student();
@@ -38,12 +39,8 @@ public class AppMain {
         studentDao.deleteStudent(7);
 
         System.out.println("----------------------");
-        System.out.println("----------------------");
-        System.out.println("----------------------");
        Student student6 = studentDao.getStudent(5);
         System.out.println(student6.getFirstName());
-        System.out.println("----------------------");
-        System.out.println("----------------------");
         System.out.println("----------------------");
 
 
