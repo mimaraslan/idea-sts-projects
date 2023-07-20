@@ -3,13 +3,6 @@
 
 ![RDBMS](src/main/resources/images/01.jpg)
 
-Some basic Git commands are:
-```
-git status
-git add
-git commit
-```
-
 ![RDBMS](src/main/resources/images/02.jpg)
 
 ![RDBMS](src/main/resources/images/03.jpg)
