@@ -19,11 +19,11 @@ public class AppMain {
 
         StudentDao studentDao = new StudentDao();
         System.out.println("\n-------SAVE ADD---------------");
- /*       studentDao.saveStudent(student1);
+        studentDao.saveStudent(student1);
         studentDao.saveStudent(student2);
         studentDao.saveStudent(student3);
         studentDao.saveStudent(student4);
-*/
+
 
         // System.out.println("-------INSERT---------------");
         // SQL'deki normal INSERT deyimine dikkat! HQL onu SQL'deki gibi kullanmaz!
