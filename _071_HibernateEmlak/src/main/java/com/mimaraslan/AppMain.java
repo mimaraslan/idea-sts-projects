@@ -11,6 +11,7 @@ import com.mimaraslan.model.Property;
 import com.mimaraslan.model.Seller;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class AppMain {
     public static void main(String[] args) {
@@ -100,6 +101,13 @@ public class AppMain {
 
         System.out.println("\nProperty");
         propertyDAO.getAllProperties().forEach(System.out::println);
+
+
+        List<Seller> allSellers = sellerDAO.getAllSellers();
+        System.out.println("\nAll Sellers:");
+        for (Seller s : allSellers) {
+            System.out.println(s);
+        }
 
     }
 }
