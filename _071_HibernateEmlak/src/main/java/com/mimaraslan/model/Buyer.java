@@ -36,7 +36,7 @@ public class Buyer {
 
     // Birden alıcı, birden fazla evi alabilir mi?
     // Buyers  ---->>>>  Properies
-    @ManyToMany (mappedBy = "buyers", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "buyers", cascade = CascadeType.ALL)
     private Set<Property> properties = new HashSet<>();
 
 }

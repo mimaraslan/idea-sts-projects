@@ -20,6 +20,7 @@ public class AppMain {
         PropertyDAO propertyDAO = new PropertyDAO();
         SellerDAO sellerDAO = new SellerDAO();
 
+
         Agent agent = new Agent();
         agent.setAgentName("Lolo Emlak");
         agent.setPhone("123456789");
@@ -50,7 +51,6 @@ public class AppMain {
         buyerDAO.saveOrUpdateBuyer(buyer2);
 
 
-
         Seller seller = new Seller();
         seller.setFirstName("Orhun");
         seller.setLastName("Bayındır ");
@@ -73,17 +73,33 @@ public class AppMain {
         property.setBathrooms(2);
         property.setPrice(BigDecimal.valueOf(1_000_000.25));
         property.setDescription("Doktordan temiz kullanılmış.");
+        property.setSeller(seller);
         property.getBuyers().add(buyer);
+        propertyDAO.saveOrUpdateProperty(property);
 
         Property property2 = new Property();
-        property2.setTitle("");
-        property2.setArea(300.55F);
-        property2.setBedrooms(6);
-        property2.setBathrooms(2);
-        property2.setPrice(BigDecimal.valueOf(1_000_000.25));
-        property2.setDescription("Doktordan temiz kullanılmış.");
+        property2.setTitle("House");
+        property2.setArea(200.11F);
+        property2.setBedrooms(4);
+        property2.setBathrooms(1);
+        property2.setPrice(BigDecimal.valueOf(80_000.90));
+        property2.setDescription("Memurdan temiz kullanılmış.");
+        property2.setSeller(seller2);
         property2.getBuyers().add(buyer2);
+        propertyDAO.saveOrUpdateProperty(property2);
 
+
+        System.out.println("Agents");
+        agentDAO.getAllAgents().forEach(System.out::println);
+
+        System.out.println("\nBuyers");
+        buyerDAO.getAllBuyers().forEach(System.out::println);
+
+        System.out.println("\nSellers");
+        sellerDAO.getAllSellers().forEach(System.out::println);
+
+        System.out.println("\nProperty");
+        propertyDAO.getAllProperties().forEach(System.out::println);
 
     }
 }

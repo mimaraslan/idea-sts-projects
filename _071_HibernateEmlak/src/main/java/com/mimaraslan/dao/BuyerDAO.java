@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BuyerDAO {
 
-    public void saveOrUpdateBuyer(Buyer buyer){
+    public void saveOrUpdateBuyer(Buyer buyer) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
@@ -17,31 +17,33 @@ public class BuyerDAO {
             session.saveOrUpdate(buyer);
             transaction.commit();
 
-        } catch (Exception ex){
-            if(transaction != null){
+        } catch (Exception ex) {
+            if (transaction != null) {
                 transaction.rollback();
             }
             ex.printStackTrace();
         }
     }
 
-    public Buyer getBuyerById(Long id){
+    public Buyer getBuyerById(Long id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.get(Buyer.class, id);
-        } catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             return null;
         }
     }
-    public List<Buyer> getAllBuyers(){
+
+    public List<Buyer> getAllBuyers() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return session.createQuery("from Buyer", Buyer.class).list();
-        } catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             return null;
         }
     }
-    public void deleteBuyerById(int id){
+
+    public void deleteBuyerById(int id) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
@@ -49,13 +51,13 @@ public class BuyerDAO {
 
             // Once verilen id uzerinden kaydi bul
             Buyer buyer = session.get(Buyer.class, id);
-            if(buyer != null){
+            if (buyer != null) {
                 session.delete(buyer);
             }
             transaction.commit();
 
-        } catch (Exception ex){
-            if(transaction != null){
+        } catch (Exception ex) {
+            if (transaction != null) {
                 transaction.rollback();
             }
             ex.printStackTrace();
