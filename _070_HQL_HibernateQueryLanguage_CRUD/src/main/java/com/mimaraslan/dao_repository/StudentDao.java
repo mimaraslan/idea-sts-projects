@@ -19,7 +19,9 @@ public class StudentDao {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
             transaction = session.beginTransaction();
+
             session.save(student);
+
             transaction.commit();
 
         } catch (Exception e) {
@@ -41,7 +43,6 @@ public class StudentDao {
 
             transaction = session.beginTransaction();
 
-
             // SQL'deki normal INSERT deyimine dikkat! HQL onu SQL'deki gibi kullanmaz!
             // Normal 1 tane kayıt ekleyeceksiniz, eklemeyi session.save(Object) yöntemi ile yaparız.
             // HQL'deki INSERT sadece toplu veriler eklemek içindir.
@@ -52,7 +53,7 @@ public class StudentDao {
 
             //Seçilen tablodaki birden fazla kaydı diğer hedef tabloya eklemek için INSERT kullanımı.
             String hqlMultiRows = "INSERT INTO Student(firstName, lastName, email) " + // HEDEF TABLO
-                    "SELECT firstName, lastName, email FROM Student where id BETWEEN 1 AND 4"; // SECILEN TABLO
+                    "SELECT firstName, lastName, email FROM Student WHERE id BETWEEN 1 AND 4"; // SECILEN TABLO
 
             //Seçilen tablodaki bütün katıtları diğer hedef tabloya eklemek için INSERT kullanımı.
             String hql = "INSERT INTO Student(firstName, lastName, email) " + // HEDEF TABLO
