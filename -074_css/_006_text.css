@@ -1,0 +1,29 @@
+div{text-align: center;
+    color: olive;
+    font-size: 25px;
+    letter-spacing: 10px;
+    word-spacing: 35px;
+    text-shadow: 5px 2px 20px red;
+}
+.ogrenci1{
+    text-decoration: overline;  
+    text-transform: lowercase;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.ogrenci2{
+    text-decoration:line-through;  
+}
+.ogrenci3{
+    text-decoration:underline;  
+}
+.ogrenci4{
+    text-transform: uppercase;  
+    direction: rtl;
+}
+.ogrenci5{
+    text-align: right;
+    text-transform: capitalize;  
+}
+

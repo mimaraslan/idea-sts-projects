@@ -1,0 +1,25 @@
+div{
+    border-width: 3px;
+    border-color: red;
+    border-style: solid;
+    padding: 30px;
+    margin: 25px;
+}
+
+#cerceve2{
+border: 7px solid orange;
+}
+
+#cerceve3{
+    border-style: dashed;
+    border-width: 4px;
+    border-bottom: 5px solid red;
+}
+
+#cerceve4{
+margin: 5px;
+border-radius: 25px;
+border-color: yellowgreen;
+border-style: dotted;
+}
+
