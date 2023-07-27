@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+ Kırmızı   <input type="radio"     name="favoriRenk" value="KIRMIZI" 
+  onclick="secilenRenk(this.value)" >
+
+ Mor   <input type="radio"         name="favoriRenk"  value="MOR"
+ onclick="secilenRenk(this.value)">
+
+ Yeşil   <input type="radio"       name="favoriRenk"  value="YESIL"
+ onclick="secilenRenk(this.value)">
+
+ Hiçbiri <input type="radio" name="" id="" disabled>
+
+    <script>
+
+function secilenRenk (renkBilgisi){
+    /*
+    if (renkBilgisi == "KIRMIZI" ) {
+        alert('Kırmızı seçildi.');
+    } else {
+        alert('Hayır istediğim renk bu değildi. : '+ renkBilgisi);
+    }
+    */
+
+    switch (renkBilgisi) {
+    case "KIRMIZI":  alert('Kırmızı seçildi.'); break;
+    
+    case "MOR":   alert('Mor seçildi.'); break;
+
+    default : alert('Hayır istediğim renk bu değildi. : '+ renkBilgisi);
+    }
+
+}
+
+
+    </script>
+
+    
+</body>
+</html>

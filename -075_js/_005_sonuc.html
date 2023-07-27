@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>İsim:<span id="isim"></span></p>
+<p>Email:<span id="email"></span></p>
+
+<form action="_005_login.html" method="get">
+    <input type="submit" id="gonder" value="Geri Git">
+    <h1>SONUC</h1>
+</form>
+<script>
+    //?isim=burak+delice&email=burakdelice%40gmail.com
+const urlParametreleri = new URLSearchParams(window.location.search);
+const isim = urlParametreleri.get('isim');
+const email = urlParametreleri.get('email');
+document.getElementById('isim').innerText = isim;
+document.getElementById('email').innerText = email;
+</script>
+</body>
+</html>
