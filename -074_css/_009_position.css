@@ -1,13 +1,15 @@
 div{
     background-color: aquamarine;
+    padding: 20px;
     left: 50px;
     width: 150px;
     position: relative;
 }
 #cerceve2{
-    top: 100px;
+    top: 0px;
+    padding: 20px;
     background-color: aquamarine;
     left: 50px;
     width: 150px;
-    position: inherit;
+    position: relative;
 }

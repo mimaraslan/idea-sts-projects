@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Üye Olma</h1>
+    <div>
+      <form action="_008_tesekkur.html" method="get" id="uyeform">
+        <table>
+          <tr>
+            <td>
+              <label for="kullanici_adi">Kullanıcı Adı: </label>
+            </td>
+            <td>
+              <input
+                type="text"
+                id="kullanici_adi"
+                name="kullanici_adi"
+                required
+                placeholder="Kullanıcı adı giriniz."
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="eposta">E-Posta: </label>
+            </td>
+            <td>
+              <input
+                type="email"
+                id="eposta"
+                name="eposta"
+                required
+                placeholder="E-Posta giriniz."
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="cinsiyet">Cinsiyet: </label>
+            </td>
+            <td>
+              <select name="cinsiyet" id="cinsiyet" required>
+                <option value="Kadin">Kadın</option>
+                <option value="Erkek">Erkek</option>
+                <option value="Belirtilmemiş">Belirtilmemiş</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>İlgi Alanları:</label>
+            </td>
+            <td>
+              <input type="checkbox" id="spor" value="Spor" name="İlgi_alani" />
+              <label for="spor">Spor</label>
+
+              <input
+                type="checkbox"
+                id="muzik"
+                value="Müzik"
+                name="İlgi_alani"
+              />
+              <label for="muzik">Müzik</label>
+
+              <input
+                type="checkbox"
+                id="seyehat"
+                value="Seyehat"
+                name="İlgi_alani"
+              />
+              <label for="seyehat">Seyehat</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Cep Telefonu:</label>
+            </td>
+            <td>
+              <input type="radio" id="android" value="Android" name="telefon" />
+              <label for="android">Android</label>
+
+              <input type="radio" id="apple" value="Apple" name="telefon" />
+              <label for="apple">Apple</label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <img
+                src="java_logo.png"
+                alt="resim bulunamdı"
+                height="50px"
+                width="50px"
+              />
+              <input type="submit" value="Kayıt Ol" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
