@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -23,4 +24,6 @@ public class Kiralama {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Ev ev;
+
+   // private Date kiralamaGunu;
 }

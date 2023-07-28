@@ -20,6 +20,6 @@ public class Kisi {
     private String tcNo;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "kisi", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "kisi", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Kiralama> kiralamaList;
 }

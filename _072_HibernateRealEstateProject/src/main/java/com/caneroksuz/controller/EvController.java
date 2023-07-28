@@ -18,7 +18,7 @@ public class EvController {
         return evService.evOlustur(ev);
     }
 
-    public Optional<Ev> evAraById(int id) {
+    public Ev evAraById(Long id) {
         return evService.evAraById(id);
     }
 }

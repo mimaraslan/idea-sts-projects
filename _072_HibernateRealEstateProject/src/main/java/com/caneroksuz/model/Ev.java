@@ -1,13 +1,11 @@
 package com.caneroksuz.model;
 
 import com.caneroksuz.model.enums.EEvStatus;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -30,4 +28,9 @@ public class Ev {
     @Enumerated(EnumType.STRING)
     private EEvStatus durum =EEvStatus.MUSAIT;
 
+/*
+    @ToString.Exclude
+    @OneToMany(mappedBy = "ev", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Kiralama> kiralamaList;
+    */
 }

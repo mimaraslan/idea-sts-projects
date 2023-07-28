@@ -4,6 +4,7 @@ import com.caneroksuz.controller.EvController;
 import com.caneroksuz.controller.KiralamaController;
 import com.caneroksuz.controller.KisiController;
 import com.caneroksuz.model.Ev;
+import com.caneroksuz.model.Kiralama;
 import com.caneroksuz.model.Kisi;
 import com.caneroksuz.model.enums.EEvStatus;
 
@@ -25,10 +26,14 @@ public class AppMain {
 
     public static void main(String[] args) {
 
-
         AppMain appMain = new AppMain();
         appMain.anaMenu();
 
+        //FIXME - menuleri tassi
+        /*
+        AppMenu appMenu = new AppMenu();
+        appMenu.anaMenu();
+         */
 
     }
 
@@ -97,10 +102,13 @@ public class AppMain {
 
         System.out.println("Lütfen kat sayısını giriniz");
         int kat = scanner.nextInt();
+
         System.out.println("Lütfen yapım yılını giriniz");
         int sene = scanner.nextInt();
+
         System.out.println("Lütfen türü giriniz");
         String tur = scanner.nextLine();
+
         scanner.nextLine();
 
         Ev ev = Ev.builder()
@@ -114,23 +122,48 @@ public class AppMain {
     private static void evAra() {
 
         System.out.println("Lütfen ev id sini giriniz");
-        int id = scanner.nextInt();
+        Long id = scanner.nextLong();
 
-        Optional<Ev> ev = evController.evAraById(id);
+        Ev ev = evController.evAraById(id);
         System.out.println(ev);
     }
     private static void evKirala() {
+
+        System.out.println("Lütfen ev id sini giriniz");
+        Long id = scanner.nextLong();
+
+        Ev ev = evController.evAraById(id);
+        System.out.println("EV BİLGİSİ: " + ev);
+
+
+        System.out.println("Lütfen kiralamak isteyen kisi id sini giriniz");
+        Long kisiId = scanner.nextLong();
+
+        Kisi kisi = kisiController.kisiAraById(kisiId);
+        System.out.println("KİŞİ BİLGİSİ:" + kisi);
+
+
+        Kiralama kiralama = Kiralama.builder()
+                .ev(ev)
+                .kisi(kisi)
+                .build();
+
+        kiralamaController.kiralamaOlustur(kiralama);
     }
 
     private static void kisiEkle() {
+        scanner.nextLine();
 
-        System.out.println("Lütfen isminizi giriniz");
+        System.out.println("Lütfen isminizi giriniz: ");
         String ad = scanner.nextLine();
+
         System.out.println("Lütfen soyisminizi giriniz");
         String soyad = scanner.nextLine();
+
         System.out.println("Lütfen tc nizi giriniz");
         String tc = scanner.nextLine();
-        scanner.nextLine();
+
+      //  scanner.nextLine();
 
         Kisi kisi = Kisi.builder()
                 .ad(ad)

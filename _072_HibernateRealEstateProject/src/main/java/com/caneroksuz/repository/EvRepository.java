@@ -36,9 +36,10 @@ public class EvRepository {
         return ev;
     }
 
-    public Optional<Ev> evAraById(int id) {
+    public Ev evAraById(Long id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return Optional.ofNullable(session.get(Ev.class, id));
+            System.out.println("EV DURUMU: " +session.get(Ev.class, id));
+            return session.get(Ev.class, id);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

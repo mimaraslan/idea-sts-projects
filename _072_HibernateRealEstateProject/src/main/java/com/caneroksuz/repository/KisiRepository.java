@@ -1,5 +1,6 @@
 package com.caneroksuz.repository;
 
+import com.caneroksuz.model.Ev;
 import com.caneroksuz.model.Kisi;
 import com.caneroksuz.utility.HibernateUtil;
 import org.hibernate.Session;
@@ -75,5 +76,16 @@ public class KisiRepository {
             e.printStackTrace();
         }
         return kisi;
+    }
+
+
+    public Kisi kisiAraById(Long id) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            System.out.println("KİŞİ DURUMU: " +session.get(Kisi.class, id));
+            return session.get(Kisi.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

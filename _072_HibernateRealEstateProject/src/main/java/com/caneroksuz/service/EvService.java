@@ -17,7 +17,7 @@ public class EvService {
         return evRepository.evOlustur(ev);
     }
 
-    public Optional<Ev> evAraById(int id) {
+    public Ev evAraById(Long id) {
         return evRepository.evAraById(id);
     }
 }
