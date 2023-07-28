@@ -1,11 +1,9 @@
-package com.caneroksuz.controller;
+package com.mimaraslan.controller;
 
-import com.caneroksuz.model.Ev;
-import com.caneroksuz.service.EvService;
-import org.hibernate.Session;
+import com.mimaraslan.model.Ev;
+import com.mimaraslan.service.EvService;
 
 import java.util.List;
-import java.util.Optional;
 
 public class EvController {
 

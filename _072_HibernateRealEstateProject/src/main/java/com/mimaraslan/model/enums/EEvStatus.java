@@ -1,4 +1,4 @@
-package com.caneroksuz.model.enums;
+package com.mimaraslan.model.enums;
 
 public enum EEvStatus {
 

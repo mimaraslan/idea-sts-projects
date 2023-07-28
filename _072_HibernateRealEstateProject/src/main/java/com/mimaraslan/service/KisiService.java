@@ -1,8 +1,7 @@
-package com.caneroksuz.service;
+package com.mimaraslan.service;
 
-import com.caneroksuz.model.Ev;
-import com.caneroksuz.model.Kisi;
-import com.caneroksuz.repository.KisiRepository;
+import com.mimaraslan.model.Kisi;
+import com.mimaraslan.repository.KisiRepository;
 
 public class KisiService {
 

@@ -1,8 +1,8 @@
-package com.caneroksuz.repository;
+package com.mimaraslan.repository;
 
-import com.caneroksuz.model.Kiralama;
-import com.caneroksuz.model.Kisi;
-import com.caneroksuz.utility.HibernateUtil;
+import com.mimaraslan.model.Kiralama;
+import com.mimaraslan.model.Kisi;
+import com.mimaraslan.utility.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

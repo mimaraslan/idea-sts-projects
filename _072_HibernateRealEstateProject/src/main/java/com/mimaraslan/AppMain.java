@@ -1,15 +1,15 @@
-package com.caneroksuz;
+package com.mimaraslan;
 
-import com.caneroksuz.controller.EvController;
-import com.caneroksuz.controller.KiralamaController;
-import com.caneroksuz.controller.KisiController;
-import com.caneroksuz.model.Ev;
-import com.caneroksuz.model.Kiralama;
-import com.caneroksuz.model.Kisi;
-import com.caneroksuz.model.enums.EEvStatus;
+import com.mimaraslan.controller.EvController;
+import com.mimaraslan.controller.KiralamaController;
+import com.mimaraslan.controller.KisiController;
+import com.mimaraslan.model.Ev;
+import com.mimaraslan.model.Kiralama;
+import com.mimaraslan.model.Kisi;
+import com.mimaraslan.model.enums.EEvStatus;
 
 import java.time.LocalDate;
-import java.util.Optional;
+import java.util.List;
 import java.util.Scanner;
 
 public class AppMain {
@@ -29,7 +29,7 @@ public class AppMain {
         AppMain appMain = new AppMain();
         appMain.anaMenu();
 
-        //FIXME - menuleri tassi
+        //FIXME - menuler tasinacak
         /*
         AppMenu appMenu = new AppMenu();
         appMenu.anaMenu();
@@ -42,6 +42,11 @@ public class AppMain {
         int secim =0;
 
         do {
+            System.out.println("***************************");
+            System.out.println("******** LOLO EMLAK *******");
+            System.out.println("******** ANA MENU *********");
+            System.out.println("***************************");
+
             System.out.println("1- Ev Ekle");
             System.out.println("2- Ev Ara");
             System.out.println("3- Kişi Ekle");
@@ -53,22 +58,22 @@ public class AppMain {
 
             switch (secim) {
                 case 1:
-                    System.out.println("Ev Ekle seçildi..");
+                    System.out.println("Ev ekle seçildi..");
                     evEkle();
                     break;
 
                 case 2:
-                    System.out.println("Ev Ara seçildi..");
+                    System.out.println("Ev ara seçildi..");
                     evAra();
                     break;
 
                 case 3:
-                    System.out.println("Kisi Ekle seçildi..");
+                    System.out.println("Kisi ekle seçildi..");
                     kisiEkle();
                     break;
 
                 case 4:
-                    System.out.println("Ev Kirala seçildi..");
+                    System.out.println("Ev kirala seçildi..");
                     evKirala();
                     break;
 
@@ -181,6 +186,11 @@ public class AppMain {
         int secim =0;
 
         do {
+
+            System.out.println("**************************");
+            System.out.println("******** RAPORLAR ********");
+            System.out.println("**************************");
+
             System.out.println("1- Şuan Kirada olan Evler");
             System.out.println("2- Boşta müsait olan Evler");
             System.out.println("3- Herhangi bir müşterinin kiraladığı Evler");
@@ -189,17 +199,17 @@ public class AppMain {
 
             switch (secim) {
                 case 1:
-                    System.out.println("Şuan Kirada olan Evler");
+                    System.out.println("Şu an kirada olan evler aranıyor. ");
                     kiradakiEvler();
                     break;
 
                 case 2:
-                    System.out.println("Boşta müsait olan Evler");
+                    System.out.println("Boşta müsait olan evler aranıyor.");
                     musaitEvler();
                     break;
 
                 case 3:
-                    System.out.println("Herhangi bir müşterinin kiraladığı Evler");
+                    System.out.println("Herhangi bir müşterinin kiraladığı evler aranıyor.");
                     herhangiBirMusterininKiraladigiEvler();
                     break;
 
@@ -216,11 +226,37 @@ public class AppMain {
     }
 
     private static void kiradakiEvler() {
-        System.out.println(evController.kiradakiEvler());
+      //  System.out.println(evController.kiradakiEvler());
+
+        List<Ev> evlerListesi = evController.kiradakiEvler();
+        for (Ev ev : evlerListesi) {
+            //System.out.println(ev);
+            System.out.println("Durumu: " + ev.getDurum() + "\t Id: " + ev.getId() + "\t Kat: " + ev.getKat() +
+                    "\t Türü: " + ev.getTur() + "\t Semt: " + ev.getSemt() + "\t Yılı: "+ ev.getYapimYili());
+        }
     }
 
     private static void musaitEvler() {
-        System.out.println(evController.musaitEvler());
+      //  System.out.println(evController.musaitEvler());
+
+        List<Ev> evlerListesi = evController.musaitEvler();
+        for (Ev ev : evlerListesi) {
+            //System.out.println(ev);
+            System.out.println("Durumu: " + ev.getDurum() + "\t Id: " + ev.getId() + "\t Kat: " + ev.getKat() +
+                    "\t Türü: " + ev.getTur() + "\t Semt: " + ev.getSemt() + "\t Yılı: "+ ev.getYapimYili());
+        }
+
+   /*         System.out.println("------------------------------------------");
+
+          for (int i = 0; i < evlerListesi.size(); i++) {
+                System.out.print(evlerListesi.get(i) + " ");
+            }
+            System.out.println("\n------------------------------------------");
+
+            evlerListesi.forEach(ev-> System.out.print(ev + " "));
+*/
+
+
     }
 
     private static void herhangiBirMusterininKiraladigiEvler() {

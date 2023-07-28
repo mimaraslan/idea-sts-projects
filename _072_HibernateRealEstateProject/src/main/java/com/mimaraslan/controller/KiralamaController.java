@@ -1,7 +1,7 @@
-package com.caneroksuz.controller;
+package com.mimaraslan.controller;
 
-import com.caneroksuz.model.Kiralama;
-import com.caneroksuz.service.KiralamaService;
+import com.mimaraslan.model.Kiralama;
+import com.mimaraslan.service.KiralamaService;
 
 public class KiralamaController {
 

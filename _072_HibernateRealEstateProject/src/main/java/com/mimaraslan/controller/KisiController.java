@@ -1,7 +1,7 @@
-package com.caneroksuz.controller;
+package com.mimaraslan.controller;
 
-import com.caneroksuz.model.Kisi;
-import com.caneroksuz.service.KisiService;
+import com.mimaraslan.model.Kisi;
+import com.mimaraslan.service.KisiService;
 
 public class KisiController {
 

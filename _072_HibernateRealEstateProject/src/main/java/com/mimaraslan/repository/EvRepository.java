@@ -1,14 +1,12 @@
-package com.caneroksuz.repository;
+package com.mimaraslan.repository;
 
-import com.caneroksuz.model.Ev;
-import com.caneroksuz.model.Kisi;
-import com.caneroksuz.utility.HibernateUtil;
+import com.mimaraslan.model.Ev;
+import com.mimaraslan.utility.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import javax.persistence.TypedQuery;
 import java.util.List;
-import java.util.Optional;
 
 public class EvRepository {
 

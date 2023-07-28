@@ -1,10 +1,9 @@
-package com.caneroksuz.service;
+package com.mimaraslan.service;
 
-import com.caneroksuz.model.Ev;
-import com.caneroksuz.repository.EvRepository;
+import com.mimaraslan.model.Ev;
+import com.mimaraslan.repository.EvRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public class EvService {
 

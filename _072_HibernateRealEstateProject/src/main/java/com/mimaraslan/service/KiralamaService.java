@@ -1,7 +1,7 @@
-package com.caneroksuz.service;
+package com.mimaraslan.service;
 
-import com.caneroksuz.model.Kiralama;
-import com.caneroksuz.repository.KiralamaRepository;
+import com.mimaraslan.model.Kiralama;
+import com.mimaraslan.repository.KiralamaRepository;
 
 public class KiralamaService {
 

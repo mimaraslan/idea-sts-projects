@@ -1,4 +1,4 @@
-package com.caneroksuz.model;
+package com.mimaraslan.model;
 
 import lombok.*;
 

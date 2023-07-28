@@ -1,11 +1,10 @@
-package com.caneroksuz.model;
+package com.mimaraslan.model;
 
-import com.caneroksuz.model.enums.EEvStatus;
+import com.mimaraslan.model.enums.EEvStatus;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
