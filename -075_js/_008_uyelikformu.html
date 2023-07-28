@@ -21,6 +21,7 @@
                 name="kullanici_adi"
                 required
                 placeholder="Kullanıcı adı giriniz."
+                value="brkdelice"
               />
             </td>
           </tr>
@@ -36,6 +37,7 @@
                 name="eposta"
                 required
                 placeholder="E-Posta giriniz."
+                value="burak@gmail.com"
               />
             </td>
           </tr>
@@ -46,9 +48,9 @@
             </td>
             <td>
               <select name="cinsiyet" id="cinsiyet" required>
+                <option value="Belirtilmemiş">Belirtilmemiş</option>
                 <option value="Kadin">Kadın</option>
                 <option value="Erkek">Erkek</option>
-                <option value="Belirtilmemiş">Belirtilmemiş</option>
               </select>
             </td>
           </tr>
@@ -57,14 +59,14 @@
               <label>İlgi Alanları:</label>
             </td>
             <td>
-              <input type="checkbox" id="spor" value="Spor" name="İlgi_alani" />
+              <input type="checkbox" id="spor" value="Spor" name="ilgi_alani" />
               <label for="spor">Spor</label>
 
               <input
                 type="checkbox"
                 id="muzik"
                 value="Müzik"
-                name="İlgi_alani"
+                name="ilgi_alani"
               />
               <label for="muzik">Müzik</label>
 
@@ -72,14 +74,14 @@
                 type="checkbox"
                 id="seyehat"
                 value="Seyehat"
-                name="İlgi_alani"
+                name="ilgi_alani"
               />
               <label for="seyehat">Seyehat</label>
             </td>
           </tr>
           <tr>
             <td>
-              <label>Cep Telefonu:</label>
+              <label id="telefon">Cep Telefonu:</label>
             </td>
             <td>
               <input type="radio" id="android" value="Android" name="telefon" />
@@ -92,17 +94,33 @@
           <tr>
             <td></td>
             <td>
-              <img
+              <!-- <img
                 src="java_logo.png"
                 alt="resim bulunamdı"
                 height="50px"
                 width="50px"
-              />
+              /> -->
               <input type="submit" value="Kayıt Ol" />
+              <input type="reset" value="Formu Temizle" />
             </td>
           </tr>
         </table>
       </form>
     </div>
+
+    <script>
+      // Dosya yükleme ve önizleme işlemi
+      document.getElementById("fotograf").addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(gelen) {
+            document.getElementById("fotoPreview").src = gelen.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+    
   </body>
 </html>

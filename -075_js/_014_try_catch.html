@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+    <script>
+
+try {
+    var sonuc = 0;
+        sonuc = 15/0;
+        document.write(sonuc);
+        console.log(sonuc)
+        throw new Error ("Tip hatasi");
+    
+} catch (e) {
+    document.write("<br> Hata meydana geldi:  "+ e)
+    console.log("Hata: "+e)
+} finally{
+    console.log("finally selam")
+}
+
+    </script>
+    
+</body>
+</html>

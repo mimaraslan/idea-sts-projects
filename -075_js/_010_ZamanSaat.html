@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <time id="tarih"></time>
+    <p id="tarih2"></p>
+
+    <strong id = "gunAyYil"></strong>
+
+    <script>
+
+let simdi = new Date();
+console.log(simdi);
+document.getElementById("tarih").innerHTML = simdi;
+document.getElementById("tarih2").innerText = simdi;
+
+yil = simdi.getFullYear();
+ay = simdi.getMonth();
+gun = simdi.getDate();
+
+let sonuc = gun + "/" + (ay+1) + "/" + yil;
+document.getElementById("gunAyYil").innerText = sonuc;
+
+    </script>
+    
+</body>
+</html>

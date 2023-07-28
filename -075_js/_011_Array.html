@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <h1>Arrays</h1>
+
+
+    <p id="mesaj"></p>
+    <hr>
+    <p id="mesaj2"></p>
+    <hr>
+    <p id="mesaj3"></p>
+    
+   
+   
+   <script>
+
+let sehirler = ["Ankara","Toronto","<br>London","Berlin","Adana","<b>Kırıkkale</b>"
+,"Çankırı", "<hr>Muğla","Şanlıurfa"];
+
+document.getElementById("mesaj").innerText = sehirler;
+
+document.getElementById("mesaj2").innerHTML = sehirler;
+
+
+
+var sehirlerTurkiye = ["Malatya", "Ankara","İstanbul", "Adana",];
+sehirlerTurkiye.sort();
+
+var sehirlerAlmanya = ["Berlin","Münih"], 
+    sehirlerKanada = ["Toronto","Ottowa"];
+
+    sehirlerAlmanya.pop();
+    sehirlerTurkiye.push("İzmir");
+
+var sehirler2 = sehirlerTurkiye.concat(sehirlerAlmanya).concat(sehirlerKanada); 
+document.getElementById("mesaj3").innerHTML = sehirler2;
+
+    </script>
+
+</body>
+</html>

@@ -3,9 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Uye Bilgileri</title>
   </head>
   <body>
-    Teşekkür
+    <h1>Üye Bilgileri</h1>
+    <p>
+      Teşekkür ederiz. Üye işlemleriniz başarı ile tamamlandı. Bizi seçtiğiniz
+      için teşekkürler.
+    </p>
+    <table>
+      <tr>
+        <td>
+          <strong>Kullanıcı adı: </strong>
+        </td>
+        <td>
+          <span id="kullaniciAdi"></span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>E-Posta:</strong></td>
+        <td>
+          <span id="eposta"></span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Cinsiyet:</strong></td>
+        <td>
+          <span id="cinsiyet"></span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>İlgi Alanları:</strong></td>
+        <td>
+          <span id="ilgiAlani"></span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Cep Telefonu:</strong></td>
+        <td>
+          <span id="cepTelefonu"></span>
+        </td>
+      </tr>
+    </table>
+    <script>
+      const urlParametreleri = new URLSearchParams(window.location.search);
+
+      const kullanici_adi = urlParametreleri.get("kullanici_adi");
+
+      const email = urlParametreleri.get("eposta");
+
+      const cinsiyet = urlParametreleri.get("cinsiyet");
+
+      const telefon = urlParametreleri.get("telefon");
+      if (telefon) {
+        document.getElementById("cepTelefonu").innerText = telefon;
+      } else {
+        document.getElementById("cepTelefonu").innerText = "Seçilmedi";
+      }
+
+      const ilgiAlanlari = urlParametreleri.getAll("ilgi_alani");
+      if (ilgiAlanlari.length !== 0) {
+        document.getElementById("ilgiAlani").innerText = ilgiAlanlari.join(",");
+      } else {
+        document.getElementById("ilgiAlani").innerText = "Seçilmedi";
+      }
+
+      document.getElementById("kullaniciAdi").innerText = kullanici_adi;
+
+      document.getElementById("eposta").innerText = email;
+
+      document.getElementById("cinsiyet").innerText = cinsiyet;
+    </script>
   </body>
 </html>
