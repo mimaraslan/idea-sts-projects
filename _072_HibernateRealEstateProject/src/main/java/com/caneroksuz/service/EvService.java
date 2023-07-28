@@ -3,6 +3,7 @@ package com.caneroksuz.service;
 import com.caneroksuz.model.Ev;
 import com.caneroksuz.repository.EvRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public class EvService {
@@ -19,5 +20,13 @@ public class EvService {
 
     public Ev evAraById(Long id) {
         return evRepository.evAraById(id);
+    }
+
+    public List<Ev> kiradakiEvler() {
+        return evRepository.kiradakiEvler();
+    }
+
+    public List<Ev> musaitEvler() {
+        return evRepository.musaitEvler();
     }
 }

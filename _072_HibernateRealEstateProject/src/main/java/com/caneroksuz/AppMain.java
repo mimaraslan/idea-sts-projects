@@ -106,10 +106,12 @@ public class AppMain {
         System.out.println("Lütfen yapım yılını giriniz");
         int sene = scanner.nextInt();
 
+        scanner.nextLine();
+
         System.out.println("Lütfen türü giriniz");
         String tur = scanner.nextLine();
 
-        scanner.nextLine();
+
 
         Ev ev = Ev.builder()
                 .kat(kat)
@@ -133,6 +135,7 @@ public class AppMain {
         Long id = scanner.nextLong();
 
         Ev ev = evController.evAraById(id);
+        ev.setDurum(EEvStatus.KIRADA);
         System.out.println("EV BİLGİSİ: " + ev);
 
 
@@ -182,7 +185,6 @@ public class AppMain {
             System.out.println("2- Boşta müsait olan Evler");
             System.out.println("3- Herhangi bir müşterinin kiraladığı Evler");
 
-
             secim= scanner.nextInt();
 
             switch (secim) {
@@ -214,10 +216,11 @@ public class AppMain {
     }
 
     private static void kiradakiEvler() {
-        kiralamaController.kiradakiEvler();
+        System.out.println(evController.kiradakiEvler());
     }
 
     private static void musaitEvler() {
+        System.out.println(evController.musaitEvler());
     }
 
     private static void herhangiBirMusterininKiraladigiEvler() {

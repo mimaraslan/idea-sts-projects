@@ -45,4 +45,22 @@ public class EvRepository {
             return null;
         }
     }
+
+    public List<Ev> kiradakiEvler() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("from Ev WHERE durum = 'KIRADA'", Ev.class).list();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Ev> musaitEvler() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("from Ev WHERE durum = 'MUSAIT'", Ev.class).list();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 }

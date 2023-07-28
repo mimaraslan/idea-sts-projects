@@ -11,9 +11,6 @@ public class KiralamaController {
         this.kiralamaService = new KiralamaService();
     }
 
-    public void kiradakiEvler() {
-        kiralamaService.kiradakiEvler();
-    }
 
     public Kiralama kiralamaOlustur(Kiralama kiralama) {
         return kiralamaService.kiralamaOlustur(kiralama);

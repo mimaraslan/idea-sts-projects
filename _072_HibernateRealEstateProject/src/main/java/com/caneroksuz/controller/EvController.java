@@ -4,6 +4,7 @@ import com.caneroksuz.model.Ev;
 import com.caneroksuz.service.EvService;
 import org.hibernate.Session;
 
+import java.util.List;
 import java.util.Optional;
 
 public class EvController {
@@ -21,4 +22,13 @@ public class EvController {
     public Ev evAraById(Long id) {
         return evService.evAraById(id);
     }
+
+    public List<Ev> kiradakiEvler() {
+        return evService.kiradakiEvler();
+    }
+
+    public List<Ev> musaitEvler() {
+        return evService.musaitEvler();
+    }
+
 }
