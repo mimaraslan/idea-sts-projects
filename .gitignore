@@ -138,3 +138,8 @@ Thumbs.db
 
 # Frontend
 package-lock.json
+
+
+.mvn/wrapper
+mvnw
+mvnw.cmd
