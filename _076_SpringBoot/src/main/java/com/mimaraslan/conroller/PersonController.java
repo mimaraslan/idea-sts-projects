@@ -13,7 +13,7 @@ public class PersonController {
     // http://localhost:8081
     @GetMapping
     public String getHello() {
-        return "Selamlar Merhaba";
+        return "<h1 style='color:red'>Hello</h1> Selamlar Merhaba";
     }
 
 
