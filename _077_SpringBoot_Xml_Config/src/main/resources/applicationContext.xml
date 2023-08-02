@@ -14,7 +14,7 @@
         <bean id="cService" class="com.mimaraslan.service.CService"/>
 
         <bean id="messageProcessor" class="com.mimaraslan.service.MessageProcessorImpl">
-            <property name="selectService" ref="aService"/>
+            <property name="selectService" ref="cService"/>
         </bean>
 
 
