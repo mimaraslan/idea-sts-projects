@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 
 //    http://localhost:8080/api/v1
@@ -32,8 +33,8 @@ public class StudentController {
         return "Merhaba " + studentFirstName + " " + studentLastName;
     }
 
-
-    //    http://localhost:8080/api/v1/students
+    // LIST ALL
+    // GET    http://localhost:8080/api/v1/students
     @GetMapping("/students")
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
@@ -43,7 +44,6 @@ public class StudentController {
     //   GET  http://localhost:8080/api/v1/students/1
     @GetMapping("/students/{id}")
     public ResponseEntity<Student> getOneStudent(@PathVariable(value = "id") Long id) throws ResourceNotFoundException {
-
         return studentService.getOneStudent(id);
     }
 
@@ -55,12 +55,20 @@ public class StudentController {
     }
 
 
+    // DELETE
+    //    http://localhost:8080/api/v1/students/1
+    @DeleteMapping("/students/{id}")
+    public Map<String,Boolean> deleteOneStudent(@PathVariable(value = "id") Long id) throws  ResourceNotFoundException{
+        return studentService.deleteOneStudent(id);
+    }
+
+
     // UPDATE
     //    http://localhost:8080/api/v1/students/1
- /*   @PutMapping("/students/{id}")
-    public Student updateOneStudent(@PathVariable(value = "id") Long id,
-                                    @RequestBody Student student) {
-        Student studentInfo = studentService.getOneStudent(id);
+    @PutMapping("/students/{id}")
+    public ResponseEntity<Student> updateOneStudent(@PathVariable(value = "id") Long id,
+                                                    @RequestBody Student student) throws ResourceNotFoundException{
+        Student studentInfo = studentService.getOneStudent(id).getBody();
 
         if (studentInfo != null) {
             studentInfo.setId(id);
@@ -72,24 +80,5 @@ public class StudentController {
 
         return null;
     }
-*/
-
-    // DELETE
-    //    http://localhost:8080/api/v1/students/1
-    @DeleteMapping("/students/{id}")
-    public String deleteOneStudent(@PathVariable(value = "id") Long id) {
-        return studentService.deleteOneStudent(id);
-    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
