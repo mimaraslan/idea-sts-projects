@@ -23,6 +23,7 @@ public class StudentService {
 
 
     public ResponseEntity<Student> getOneStudent(Long id)  throws ResourceNotFoundException {
+
         Student student = studentRepository.findById(id)
                 .orElseThrow( ()-> new ResourceNotFoundException("Student not found ID : " + id )   );
 

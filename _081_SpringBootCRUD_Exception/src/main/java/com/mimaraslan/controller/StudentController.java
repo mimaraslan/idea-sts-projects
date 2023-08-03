@@ -40,9 +40,9 @@ public class StudentController {
     }
 
 
-    //    http://localhost:8080/api/v1/students/1
+    //   GET  http://localhost:8080/api/v1/students/1
     @GetMapping("/students/{id}")
-    public ResponseEntity<Student> getOneStudent(@PathVariable(value = "id") Long id)  throws ResourceNotFoundException {
+    public ResponseEntity<Student> getOneStudent(@PathVariable(value = "id") Long id) throws ResourceNotFoundException {
 
         return studentService.getOneStudent(id);
     }
