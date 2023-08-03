@@ -1,8 +1,10 @@
 package com.mimaraslan.controller;
 
+import com.mimaraslan.exception.ResourceNotFoundException;
 import com.mimaraslan.model.Student;
 import com.mimaraslan.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,7 +42,8 @@ public class StudentController {
 
     //    http://localhost:8080/api/v1/students/1
     @GetMapping("/students/{id}")
-    public Student getOneStudent(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<Student> getOneStudent(@PathVariable(value = "id") Long id)  throws ResourceNotFoundException {
+
         return studentService.getOneStudent(id);
     }
 
@@ -54,7 +57,7 @@ public class StudentController {
 
     // UPDATE
     //    http://localhost:8080/api/v1/students/1
-    @PutMapping("/students/{id}")
+ /*   @PutMapping("/students/{id}")
     public Student updateOneStudent(@PathVariable(value = "id") Long id,
                                     @RequestBody Student student) {
         Student studentInfo = studentService.getOneStudent(id);
@@ -69,7 +72,7 @@ public class StudentController {
 
         return null;
     }
-
+*/
 
     // DELETE
     //    http://localhost:8080/api/v1/students/1

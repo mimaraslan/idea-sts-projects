@@ -1,9 +1,11 @@
 package com.mimaraslan.service;
 
+import com.mimaraslan.exception.ResourceNotFoundException;
 import com.mimaraslan.model.Student;
 import com.mimaraslan.repository.StudentRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,8 +22,11 @@ public class StudentService {
     }
 
 
-    public Student getOneStudent(Long id) {
-        return studentRepository.findById(id).get();
+    public ResponseEntity<Student> getOneStudent(Long id)  throws ResourceNotFoundException {
+        Student student = studentRepository.findById(id)
+                .orElseThrow( ()-> new ResourceNotFoundException("Student not found ID : " + id )   );
+
+        return ResponseEntity.ok().body(student);
     }
 
     public Student createStudent(Student student) {
