@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Page</title>
+  <link rel="stylesheet" href="/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    ADD
+    <form action="#" th:action="@{/createEmployee}" th:object="{employee}" method="post">
+
+        <table>
+            <tr>
+                <td>FirstName</td>
+                <td><input type="text" th:field="*{firstName}" id="firstName"/> </td>
+            </tr>
+
+            <tr>
+                <td>LastName</td>
+                <td><input type="text" th:field="*{lastName}" id="lastName"/> </td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td><input type="text" th:field="*{email}" id="email"/> </td>
+            </tr>
+
+
+        </table>
+
+    </form>
+
+
+</div>
+
+<script src="/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

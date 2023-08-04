@@ -30,4 +30,22 @@ public class EmployeeService {
 
 
     }
+
+    public Employee createOrUpdateEmployee(Employee employee) {
+
+        // CREATE - ADD
+        if(employee.getId() == null ){
+            employee = employeeRepository.save(employee);
+            return employee;
+        }
+        else {  // EDIT - UPDATE
+
+
+
+
+            return  employee;
+        }
+
+
+    }
 }
