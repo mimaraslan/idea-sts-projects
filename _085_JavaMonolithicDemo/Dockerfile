@@ -24,7 +24,10 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 
 #2.Yol: eğer dockerhub hesabınıza kopyalayacaksanız.
 # docker build --build-arg  JAR_FILE=build/libs/_085_JavaMonolithicDemo-0.0.1-SNAPSHOT.jar -t  mimaraslan/java-monolithic-demo .
+# docker run -d -p 9091:8080 mimaraslan/mimaraslan/java-monolithic-demo
 
 # docker build --build-arg JAR_FILE=[build/libs/_085_JavaMonolithicDemo-0.0.1-SNAPSHOT.jar] -t mimaraslan/java-monolithic-demo:001 .
+# docker run -d -p 9092:8080 mimaraslan/mimaraslan/java-monolithic-demo:001
 
 # docker build --build-arg  JAR_FILE=build/libs/_085_JavaMonolithicDemo-0.0.1-SNAPSHOT.jar -t  mimaraslan/java-monolithic-demo:v001 .
+# docker run -d -p 9093:8080 mimaraslan/mimaraslan/java-monolithic-demo:v001
