@@ -1,5 +1,17 @@
+#JDK sürümü
 FROM openjdk:17
+
+# projenin JAR dosyasinin image icindeki adresi
 ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+
+# image icindeki JAR dosyasinina adi
+COPY ${JAR_FILE} application.jar
+
+#Linux gucellemesi
 CMD apt-get update-y
-ENTRYPOINT ["java","-jar","/app.jar"]
+
+# projenin calisacagi ic port
+EXPOSE 8080
+
+# Container icin projedeki JAR dosyasi  calistiriliyor
+ENTRYPOINT ["java", "-jar", "application.jar"]
