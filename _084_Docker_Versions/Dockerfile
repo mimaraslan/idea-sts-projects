@@ -4,7 +4,7 @@ FROM openjdk:17
 # projenin JAR dosyasinin image icindeki adresi
 ARG JAR_FILE=target/*.jar
 
-# image icindeki JAR dosyasinin adi
+# image icindeki JAR dosyasinin ad
 COPY ${JAR_FILE} application.jar
 
 #Linux gucellemesi
