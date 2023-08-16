@@ -71,13 +71,6 @@ allprojects {
         implementation libs.mapStruct
         annotationProcessor libs.mapStructProcessor
         implementation libs.swaggerApi
-//        implementation libs.jwt
-//        implementation libs.springCloudOpenFeign
-//        implementation libs.springBootValidation
-//        implementation libs.springCloudConfigClient
-//        implementation libs.springCloudSleuthZipkin
-//        implementation libs.springCloudSleuth
-
     }
 }
 
