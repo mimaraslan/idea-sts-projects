@@ -22,4 +22,5 @@ public class HelloController {
     public String metod3() {
         return "Metod 3";
     }
+
 }
