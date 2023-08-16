@@ -17,6 +17,7 @@ public class HelloController {
     public String metod2() {
         return "Metod 2";
     }
+
     @GetMapping("/metod3")
     public String metod3() {
         return "Metod 3";
