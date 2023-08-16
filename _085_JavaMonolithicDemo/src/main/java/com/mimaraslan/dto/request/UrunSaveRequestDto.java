@@ -14,5 +14,4 @@ public class UrunSaveRequestDto {
     String marka;
     String model;
     Double fiyat;
-
 }

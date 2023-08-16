@@ -14,5 +14,6 @@ public interface IMusteriMapper {
     Bundan sonrasında dönüşüm yapmak istediğiniz sınıflarla iligli metodları yazın.
      */
     MusteriFindAllResponseDto fromMusteri(final Musteri musteri);
+
     Musteri fromSaveRequestDto(final MusteriSaveRequestDto dto);
 }

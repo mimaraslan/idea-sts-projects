@@ -11,6 +11,7 @@ public class ServiceManager<T,ID> implements IService<T,ID>{
     public ServiceManager(JpaRepository<T, ID> repository) {
         this.repository = repository;
     }
+
     @Override
     public T save(T t) {
         return repository.save(t);
@@ -39,4 +40,5 @@ public class ServiceManager<T,ID> implements IService<T,ID>{
     public List<T> findAll() {
         return repository.findAll();
     }
+
 }

@@ -14,6 +14,7 @@ public class MusteriSaveRequestDto {
     String ad;
     String adres;
     String tel;
+
     String token;
     String ip;
     String userpcmodel;

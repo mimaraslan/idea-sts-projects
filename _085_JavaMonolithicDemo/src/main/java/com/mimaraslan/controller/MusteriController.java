@@ -32,24 +32,28 @@ import java.util.List;
  *  Daha faza data işlendiği için performans düşer.
  *  Gereksiz trafik yoğunluğu yaratır.
  */
-@RestController
+@RestController  //   /api        /v1                /musteri
 @RequestMapping(EndPoints.API+ EndPoints.VERSION+ EndPoints.MUSTERI)
 @RequiredArgsConstructor
 public class MusteriController {
+
     private final MusteriService service;
+
     @GetMapping(EndPoints.SAVE)
     public ResponseEntity<String> save(MusteriSaveRequestDto dto){
         service.saveDto(dto);
         return ResponseEntity.ok("Kayıt Başarılı");
     }
+
+
     @GetMapping(EndPoints.GETALL)
     public ResponseEntity<List<MusteriFindAllResponseDto>> findAll(){
         return ResponseEntity.ok(service.findAllResponseDto());
     }
-   @GetMapping("/selam")
-    public String selam(){
-        return "<h1 style=\"color:red\">SELAM</h1>";
-   }
+
+
+
+
    @GetMapping(EndPoints.GETBYAD)
    public ResponseEntity<String> findByAd(String ad) throws Exception {
         if(ad==null){
@@ -57,8 +61,18 @@ public class MusteriController {
         }
        return ResponseEntity.ok("Herşey doğru çalıştı");
    }
+
+
     @GetMapping(EndPoints.GETALLBYIL)
     public ResponseEntity<List<Musteri>> findAllByIl(String il){
         return ResponseEntity.ok(service.findAllByIl(il));
     }
+
+
+    //  http://localhost:8080/api/v1/musteri/selam
+    @GetMapping("/selam")
+    public String selam(){
+        return "<h1 style=\"color:red\">SELAM</h1>";
+    }
+
 }

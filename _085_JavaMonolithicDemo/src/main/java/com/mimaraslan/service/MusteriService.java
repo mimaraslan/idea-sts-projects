@@ -14,7 +14,9 @@ import java.util.Optional;
 
 @Service
 public class MusteriService extends ServiceManager<Musteri,Long> {
+
     private final IMusteriRepository repository;
+
     public MusteriService(IMusteriRepository repository) {
         super(repository);
         this.repository=repository;

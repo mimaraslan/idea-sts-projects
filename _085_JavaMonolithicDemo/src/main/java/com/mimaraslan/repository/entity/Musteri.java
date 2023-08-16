@@ -15,9 +15,11 @@ public class Musteri {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     String ad;
     String adres;
     String tel;
+
     String il;
     String username;
     String password;

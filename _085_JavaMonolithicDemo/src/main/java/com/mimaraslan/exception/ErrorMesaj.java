@@ -1,10 +1,7 @@
 package com.mimaraslan.exception;
 
-
-
 import lombok.*;
 import org.springframework.http.HttpStatus;
-
 
 @AllArgsConstructor
 @NoArgsConstructor

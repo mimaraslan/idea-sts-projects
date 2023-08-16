@@ -1,3 +1,6 @@
+# API 
+http://localhost:8080/swagger-ui/index.html#/
+
 # KLASÖRLER
 
 ## public
@@ -23,3 +26,4 @@
 * Rest projelerinde ResponseEntity ile data dönüyorduk.
 * MVC projelerinde modelandview nesnesi geri dönülecek.
 * hem web sayfasını hem de görüntülenecek verileri taşımak için kullanılır.
+
