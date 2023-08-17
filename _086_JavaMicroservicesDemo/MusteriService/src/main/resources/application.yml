@@ -1,11 +1,11 @@
-server.port: 9090
+server.port: 9091
 
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: 123456789
-    url: jdbc:postgresql://localhost:5432/JavaMicroAuthDB
+    url: jdbc:postgresql://localhost:5432/JavaMicroMusteriDB
   jpa:
     hibernate:
       ddl-auto: update

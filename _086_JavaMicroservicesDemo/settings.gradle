@@ -1,3 +1,4 @@
 rootProject.name = '_086_JavaMicroservicesDemo'
 include 'AuthService'
+include 'MusteriService'
 
