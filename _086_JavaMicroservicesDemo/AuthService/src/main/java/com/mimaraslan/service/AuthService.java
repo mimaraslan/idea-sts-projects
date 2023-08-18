@@ -49,8 +49,31 @@ public class AuthService extends ServiceManager <Auth, Long> {
         return auth;
     }
 
-
+     // Tokensiz
+/*
     public List<Auth> findAll() {
+        return repository.findAll();
+    }
+    */
+
+
+    public List<Auth> findAll(String token) {
+
+        Optional<Long> id = null;
+
+        try {
+            id = jwtTokenManager.getIdFromToken(token);
+            System.out.println("ID: "+ id);
+        }catch (Exception e){
+            throw new AuthServiceException(ErrorType.INVALID_TOKEN);
+        }
+
+
+        if (findById(id.get()).isEmpty()){
+            throw new AuthServiceException(ErrorType.INVALID_TOKEN); // FIXME
+        }
+
+
         return repository.findAll();
     }
 

@@ -62,12 +62,20 @@ public class AuthController {
     }
 
 
-
+/* // Tokensiz
     //  http://localhost:9090/auth/getall
-    @PostMapping(GETALL)
+    @GetMapping(GETALL)
     public ResponseEntity<List<Auth>> findAll () {
         return ResponseEntity.ok(authService.findAll());
     }
+    */
 
+
+    // Tokenli
+    //  http://localhost:9090/auth/getall
+    @GetMapping(GETALL)
+    public ResponseEntity<List<Auth>> findAll (String token) {
+        return ResponseEntity.ok(authService.findAll(token));
+    }
 
 }

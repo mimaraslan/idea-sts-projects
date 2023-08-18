@@ -19,7 +19,10 @@ public enum ErrorType {
     REGISTER_PASSWORD_MISMACTH(4001,"Girilen parolalar eşleşmedi.", HttpStatus.BAD_REQUEST),
     REGISTER_USERNAME_EXISTS(4002,"Geçersiz parametre girişi yaptınız", HttpStatus.BAD_REQUEST),
 
-    LOGIN_USERNAME_OR_PASSWORD_NOT_EXISTS(5001,"Girilen kullanıcı adı veya parola hatalı.", HttpStatus.BAD_REQUEST);
+    LOGIN_USERNAME_OR_PASSWORD_NOT_EXISTS(5001,"Girilen kullanıcı adı veya parola hatalı.", HttpStatus.BAD_REQUEST),
+
+    INVALID_TOKEN(6001,"Girilen token gecersiz.", HttpStatus.BAD_REQUEST);
+
 
     private int code;
     private String message;

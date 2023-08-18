@@ -14,7 +14,7 @@ public class JwtTokenManager {
 
     String secretKey = "Ankara_06";
     String issuer = "Adana_01";
-    Long exDate = 1000L * 60 * 2; // 2 dakika
+    Long exDate = 1000L * 60 * 1; // 1 dakika
 
 
     // Token uretme
@@ -41,7 +41,7 @@ public class JwtTokenManager {
 
         try{
             Algorithm algorithm = Algorithm.HMAC512(secretKey);
-            JWTVerifier verifier = JWT.require(algorithm).withAudience(issuer).build();
+            JWTVerifier verifier = JWT.require(algorithm).withIssuer(issuer).build();
             DecodedJWT decodedJWT = verifier.verify(token);
 
             if (decodedJWT == null)
@@ -58,7 +58,7 @@ public class JwtTokenManager {
     public Optional<Long> getIdFromToken (String token){
        try {
            Algorithm algorithm = Algorithm.HMAC512(secretKey);
-           JWTVerifier verifier = JWT.require(algorithm).withAudience(issuer).build();
+           JWTVerifier verifier = JWT.require(algorithm).withIssuer(issuer).build();
            DecodedJWT decodedJWT = verifier.verify(token);
 
            System.out.println("Tokendaki decodedJWT : "+ decodedJWT);
@@ -67,8 +67,11 @@ public class JwtTokenManager {
                return Optional.empty();
 
            Long id = decodedJWT.getClaim("id").asLong();
+
            String info = decodedJWT.getClaim("info").asString();
-        return Optional.of(id);
+           System.out.println("info : "+ info);
+
+           return Optional.of(id);
 
        } catch (Exception e){
            return Optional.empty();
