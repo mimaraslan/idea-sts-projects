@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GlobalExceptionHandler {
 
 
-  private ErrorMesaj createErrorMesaj(ErrorType eerrorType, Exception exception){
+  private ErrorMessage createErrorMesaj(ErrorType eerrorType, Exception exception){
       System.out.println("Hata oluştu...."+exception.getMessage());
-       return ErrorMesaj.builder()
+       return ErrorMessage.builder()
                 .code(eerrorType.getCode())
-                .mesaj(eerrorType.getMesaj())
+                .message(eerrorType.getMesaj())
                 .build();
     }
 
@@ -36,12 +36,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body("Uygulamada bad request gerçekleşti..."+e.getMessage());
     }
 
-    @ExceptionHandler(SatisException.class)
+    @ExceptionHandler(AuthServiceException.class)
     @ResponseBody
-    public ResponseEntity<ErrorMesaj> handleSatisException(SatisException e){
+    public ResponseEntity<ErrorMessage> handleSatisException(AuthServiceException e){
         ErrorType eerrorType=e.getType();
         HttpStatus httpStatus=eerrorType.getStatus();
-        return new ResponseEntity<ErrorMesaj>(createErrorMesaj(eerrorType,e),httpStatus);
+        return new ResponseEntity<ErrorMessage>(createErrorMesaj(eerrorType,e),httpStatus);
     }
 
 

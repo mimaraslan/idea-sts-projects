@@ -17,6 +17,6 @@ public enum ErrorType {
     INVALID_PARAMETER(3001,"Geçersiz parametre girişi yaptınız", BAD_REQUEST);
 
     private int code;
-    private String mesaj;
+    private String message;
     private HttpStatus status;
 }
