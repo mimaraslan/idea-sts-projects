@@ -1,7 +1,7 @@
 package com.mimaraslan.service;
 
 
-import com.mimaraslan.dto.request.RegisterRequestDto;
+import com.mimaraslan.dto.request.DoRegisterRequestDto;
 import com.mimaraslan.mapper.IAuthMapper;
 import com.mimaraslan.repository.IAuthRepository;
 import com.mimaraslan.repository.entity.Auth;
@@ -18,11 +18,11 @@ public class AuthService extends ServiceManager <Auth, Long> {
         this.repository = repository;
     }
 
-    public String doLogin(RegisterRequestDto dto) {
+    public String doLogin(DoRegisterRequestDto dto) {
         return null;
     }
 
-    public Auth doRegister(RegisterRequestDto dto) {
+    public Auth doRegister(DoRegisterRequestDto dto) {
 
         Auth auth = IAuthMapper.INSTANCE.toAuth(dto);
         save(auth);

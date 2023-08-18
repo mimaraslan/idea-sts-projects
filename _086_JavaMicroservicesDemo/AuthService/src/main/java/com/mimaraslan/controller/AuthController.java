@@ -1,7 +1,6 @@
 package com.mimaraslan.controller;
 
-import com.mimaraslan.constant.EndPoints;
-import com.mimaraslan.dto.request.RegisterRequestDto;
+import com.mimaraslan.dto.request.DoRegisterRequestDto;
 import com.mimaraslan.exception.AuthServiceException;
 import com.mimaraslan.exception.ErrorType;
 import com.mimaraslan.repository.entity.Auth;
@@ -21,12 +20,12 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping(LOGIN)
-    public ResponseEntity<String> doLogin (@RequestBody RegisterRequestDto dto) {
+    public ResponseEntity<String> doLogin (@RequestBody DoRegisterRequestDto dto) {
         return ResponseEntity.ok(authService.doLogin(dto));
     }
 
     @PostMapping(REGISTER)
-    public ResponseEntity<Auth> doRegister(@RequestBody RegisterRequestDto dto){
+    public ResponseEntity<Auth> doRegister(@RequestBody DoRegisterRequestDto dto){
 /*
         Auth auth = new Auth();
         auth.setUsername(dto.getUsername());

@@ -1,6 +1,6 @@
 package com.mimaraslan.mapper;
 
-import com.mimaraslan.dto.request.RegisterRequestDto;
+import com.mimaraslan.dto.request.DoRegisterRequestDto;
 import com.mimaraslan.repository.entity.Auth;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -11,6 +11,6 @@ public interface IAuthMapper {
 
     IAuthMapper INSTANCE= Mappers.getMapper(IAuthMapper.class);
 
-    Auth toAuth(final RegisterRequestDto dto);
+    Auth toAuth(final DoRegisterRequestDto dto);
 
 }
