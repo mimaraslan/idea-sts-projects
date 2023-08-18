@@ -3,12 +3,12 @@ package com.mimaraslan.service;
 
 import com.mimaraslan.dto.request.DoLoginRequestDto;
 import com.mimaraslan.dto.request.DoRegisterRequestDto;
-import com.mimaraslan.dto.response.DoLoginResponseDto;
 import com.mimaraslan.exception.AuthServiceException;
 import com.mimaraslan.exception.ErrorType;
 import com.mimaraslan.mapper.IAuthMapper;
 import com.mimaraslan.repository.IAuthRepository;
 import com.mimaraslan.repository.entity.Auth;
+import com.mimaraslan.utility.JwtTokenManager;
 import com.mimaraslan.utility.ServiceManager;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +20,14 @@ public class AuthService extends ServiceManager <Auth, Long> {
 
     private final IAuthRepository repository;
 
-    public AuthService(IAuthRepository repository) {
+    private final JwtTokenManager jwtTokenManager;
+
+
+
+    public AuthService(IAuthRepository repository, JwtTokenManager jwtTokenManager) {
         super(repository);
         this.repository = repository;
+        this.jwtTokenManager = jwtTokenManager;
     }
 
     public String doLogin(DoLoginRequestDto dto) {
@@ -31,7 +36,8 @@ public class AuthService extends ServiceManager <Auth, Long> {
         if(auth.isEmpty())
             throw new AuthServiceException(ErrorType.LOGIN_USERNAME_OR_PASSWORD_NOT_EXISTS);
 
-        return auth.get().getId().toString();
+       // return    auth.get().getId().toString();
+        return  jwtTokenManager.createToken(auth.get().getId()).get();
     }
 
     public Auth doRegister(DoRegisterRequestDto dto) {
