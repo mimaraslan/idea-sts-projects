@@ -4,19 +4,26 @@ import com.mimaraslan.constant.EndPoints;
 import com.mimaraslan.dto.request.RegisterRequestDto;
 import com.mimaraslan.repository.entity.Auth;
 import com.mimaraslan.service.AuthService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import static com.mimaraslan.constant.EndPoints.*;
+
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(EndPoints.AUTH)
+@RequestMapping(AUTH)
 public class AuthController {
 
     private final AuthService authService;
 
-    @PostMapping(EndPoints.REGISTER)
+    @PostMapping(LOGIN)
+    public ResponseEntity<String> doLogin (@RequestBody RegisterRequestDto dto) {
+        return ResponseEntity.ok(authService.doLogin(dto));
+    }
+
+    @PostMapping(REGISTER)
     public ResponseEntity<Auth> register(@RequestBody RegisterRequestDto dto){
       /*
         Auth auth = new Auth();

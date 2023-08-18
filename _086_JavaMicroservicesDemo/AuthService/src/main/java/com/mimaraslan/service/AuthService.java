@@ -1,6 +1,7 @@
 package com.mimaraslan.service;
 
 
+import com.mimaraslan.dto.request.RegisterRequestDto;
 import com.mimaraslan.repository.IAuthRepository;
 import com.mimaraslan.repository.entity.Auth;
 import com.mimaraslan.utility.ServiceManager;
@@ -14,5 +15,9 @@ public class AuthService extends ServiceManager <Auth, Long> {
     public AuthService(IAuthRepository repository) {
         super(repository);
         this.repository = repository;
+    }
+
+    public String doLogin(RegisterRequestDto dto) {
+        return null;
     }
 }
