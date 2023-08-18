@@ -3,6 +3,7 @@ package com.mimaraslan.controller;
 import com.mimaraslan.constant.EndPoints;
 import com.mimaraslan.dto.request.RegisterRequestDto;
 import com.mimaraslan.exception.AuthServiceException;
+import com.mimaraslan.exception.ErrorType;
 import com.mimaraslan.repository.entity.Auth;
 import com.mimaraslan.service.AuthService;
 
@@ -25,14 +26,14 @@ public class AuthController {
     }
 
     @PostMapping(REGISTER)
-    public ResponseEntity<Auth> register(@RequestBody RegisterRequestDto dto){
+    public ResponseEntity<Auth> doRegister(@RequestBody RegisterRequestDto dto){
 /*
         Auth auth = new Auth();
         auth.setUsername(dto.getUsername());
         auth.setEmail(dto.getEmail());
         auth.setPassword(dto.getPassword());
         authService.save(auth);
-         return ResponseEntity.ok(auth);
+        return ResponseEntity.ok(auth);
 */
 
 /*
@@ -43,14 +44,13 @@ public class AuthController {
                         .password(dto.getPassword())
                         .build()
         );
-
         return ResponseEntity.ok(auth);
         */
 
         if(!dto.getPassword().equals(dto.getRepassword()))
-            throw new AuthServiceException(ER)
+            throw new AuthServiceException(ErrorType.REGISTER_PASSWORD_MISMACTH);
 
-            return ResponseEntity.ok(authService.register(dto));
+            return ResponseEntity.ok(authService.doRegister(dto));
     }
 
 
