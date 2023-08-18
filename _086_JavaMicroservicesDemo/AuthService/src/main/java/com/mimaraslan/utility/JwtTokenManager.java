@@ -1,7 +1,9 @@
 package com.mimaraslan.utility;
 
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -36,13 +38,42 @@ public class JwtTokenManager {
 
     // Token dogulama
     public Boolean verifyToken (String token){
-        return null;
+
+        try{
+            Algorithm algorithm = Algorithm.HMAC512(secretKey);
+            JWTVerifier verifier = JWT.require(algorithm).withAudience(issuer).build();
+            DecodedJWT decodedJWT = verifier.verify(token);
+
+            if (decodedJWT == null)
+                return false;
+
+        } catch (Exception e){
+            return false;
+        }
+        return true;
     }
 
 
     // Tokendan bilgi aliyoruz.
     public Optional<Long> getIdFromToken (String token){
-        return null;
+       try {
+           Algorithm algorithm = Algorithm.HMAC512(secretKey);
+           JWTVerifier verifier = JWT.require(algorithm).withAudience(issuer).build();
+           DecodedJWT decodedJWT = verifier.verify(token);
+
+           System.out.println("Tokendaki decodedJWT : "+ decodedJWT);
+
+           if (decodedJWT == null)
+               return Optional.empty();
+
+           Long id = decodedJWT.getClaim("id").asLong();
+           String info = decodedJWT.getClaim("info").asString();
+        return Optional.of(id);
+
+       } catch (Exception e){
+           return Optional.empty();
+       }
+
     }
 
 
