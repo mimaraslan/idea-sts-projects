@@ -1,5 +1,6 @@
 package com.mimaraslan.controller;
 
+import com.mimaraslan.dto.request.DoLoginRequestDto;
 import com.mimaraslan.dto.request.DoRegisterRequestDto;
 import com.mimaraslan.exception.AuthServiceException;
 import com.mimaraslan.exception.ErrorType;
@@ -9,6 +10,8 @@ import com.mimaraslan.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 import static com.mimaraslan.constant.EndPoints.*;
 
@@ -20,12 +23,14 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping(LOGIN)
-    public ResponseEntity<String> doLogin (@RequestBody DoRegisterRequestDto dto) {
+    public ResponseEntity<String> doLogin (@RequestBody @Valid DoLoginRequestDto dto) {
         return ResponseEntity.ok(authService.doLogin(dto));
     }
 
+
+   //  http://localhost:9090/auth/register
     @PostMapping(REGISTER)
-    public ResponseEntity<Auth> doRegister(@RequestBody DoRegisterRequestDto dto){
+    public ResponseEntity<Auth> doRegister(@RequestBody @Valid DoRegisterRequestDto dto){
 /*
         Auth auth = new Auth();
         auth.setUsername(dto.getUsername());
