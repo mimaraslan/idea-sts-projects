@@ -3,6 +3,7 @@ package com.mimaraslan.service;
 
 import com.mimaraslan.dto.request.DoLoginRequestDto;
 import com.mimaraslan.dto.request.DoRegisterRequestDto;
+import com.mimaraslan.dto.response.DoLoginResponseDto;
 import com.mimaraslan.exception.AuthServiceException;
 import com.mimaraslan.exception.ErrorType;
 import com.mimaraslan.mapper.IAuthMapper;
@@ -11,6 +12,7 @@ import com.mimaraslan.repository.entity.Auth;
 import com.mimaraslan.utility.ServiceManager;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -38,4 +40,10 @@ public class AuthService extends ServiceManager <Auth, Long> {
         save(auth);
         return auth;
     }
+
+
+    public List<Auth> findAll() {
+        return repository.findAll();
+    }
+
 }

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import java.util.List;
+
 import static com.mimaraslan.constant.EndPoints.*;
 
 @RequiredArgsConstructor
@@ -22,6 +24,8 @@ public class AuthController {
 
     private final AuthService authService;
 
+
+    //  http://localhost:9090/auth/login
     @PostMapping(LOGIN)
     public ResponseEntity<String> doLogin (@RequestBody @Valid DoLoginRequestDto dto) {
         return ResponseEntity.ok(authService.doLogin(dto));
@@ -55,6 +59,14 @@ public class AuthController {
             throw new AuthServiceException(ErrorType.REGISTER_PASSWORD_MISMACTH);
 
             return ResponseEntity.ok(authService.doRegister(dto));
+    }
+
+
+
+    //  http://localhost:9090/auth/getall
+    @PostMapping(GETALL)
+    public ResponseEntity<List<Auth>> findAll () {
+        return ResponseEntity.ok(authService.findAll());
     }
 
 
