@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
       System.out.println("Hata oluştu...."+exception.getMessage());
        return ErrorMessage.builder()
                 .code(eerrorType.getCode())
-                .message(eerrorType.getMesaj())
+                .message(eerrorType.getMessage())
                 .build();
     }
 
@@ -39,9 +39,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(AuthServiceException.class)
     @ResponseBody
     public ResponseEntity<ErrorMessage> handleSatisException(AuthServiceException e){
-        ErrorType eerrorType=e.getType();
-        HttpStatus httpStatus=eerrorType.getStatus();
-        return new ResponseEntity<ErrorMessage>(createErrorMesaj(eerrorType,e),httpStatus);
+        ErrorType errorType=e.getType();
+        HttpStatus httpStatus=errorType.getStatus();
+        return new ResponseEntity<ErrorMessage>(createErrorMesaj(errorType,e),httpStatus);
     }
 
 
