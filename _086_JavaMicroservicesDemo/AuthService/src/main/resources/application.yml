@@ -30,11 +30,16 @@ authservice:
 #      ddl-auto: update
 
 
+
+
 #authservice:
 #  secrets:
 #    key: "123456789Abc"
 #    issuer: "KurumAdi"
 #    exDate:  1000L * 60 * 5
+
+
+
 
 
 #spring:
