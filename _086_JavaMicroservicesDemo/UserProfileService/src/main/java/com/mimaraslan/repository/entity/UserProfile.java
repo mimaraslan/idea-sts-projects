@@ -11,17 +11,21 @@ import javax.persistence.*;
 @AllArgsConstructor //dolu constructor oluşturur.
 @ToString
 @Entity
-@Table(name = "tbl_auth")
-public class Auth {
+@Table(name = "tbl_user_profile")
+public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
 
-    @Column(unique = true)
+    private Long authid;
     private String username;
     private String email;
-    private String password;
+
+    private String ad;
+    private String address;
+    private String phone;
+    private String avatar;
 
     private  Long createAt;
     private boolean state;

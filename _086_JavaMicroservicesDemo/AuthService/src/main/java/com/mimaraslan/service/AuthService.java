@@ -48,6 +48,10 @@ public class AuthService extends ServiceManager <Auth, Long> {
         auth.setState(true);
 
         save(auth);
+
+        // TODO - DİĞER SERVİCE GİDİLECEK
+        //  http://localhost:9093/user/save
+
         return auth;
     }
 
