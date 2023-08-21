@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data //get set metodlarını otomatik tanımlar.
 @NoArgsConstructor //boş constructor oluşturur.
 @AllArgsConstructor //dolu constructor oluşturur.
-public class UserProfileDoSaveRequestDto {
+public class UserProfileSaveRequestDto {
 
   private   Long authid;
   private   String username;

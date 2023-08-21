@@ -1,10 +1,9 @@
 package com.mimaraslan.service;
 
-import com.mimaraslan.dto.request.UserProfileDoSaveRequestDto;
+import com.mimaraslan.dto.request.UserProfileSaveRequestDto;
 import com.mimaraslan.repository.IUserProfileRepository;
 import com.mimaraslan.repository.entity.UserProfile;
 import com.mimaraslan.utility.ServiceManager;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,7 +17,7 @@ public class UserProfileService extends ServiceManager <UserProfile, Long> {
     }
 
 
-    public Boolean doSave(UserProfileDoSaveRequestDto dto) {
+    public Boolean saveDto(UserProfileSaveRequestDto dto) {
         return  true;
     }
 }
