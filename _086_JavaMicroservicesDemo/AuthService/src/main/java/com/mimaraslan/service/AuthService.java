@@ -43,8 +43,10 @@ public class AuthService extends ServiceManager <Auth, Long> {
     public Auth doRegister(DoRegisterRequestDto dto) {
 
         Auth auth = IAuthMapper.INSTANCE.toAuth(dto);
+
         auth.setCreateAt(System.currentTimeMillis());
         auth.setState(true);
+
         save(auth);
         return auth;
     }

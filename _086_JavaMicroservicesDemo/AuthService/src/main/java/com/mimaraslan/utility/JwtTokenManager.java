@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -12,9 +13,23 @@ import java.util.Optional;
 @Component
 public class JwtTokenManager {
 
-    String secretKey = "Ankara_06";
-    String issuer = "Adana_01";
-    Long exDate = 1000L * 60 * 1; // 1 dakika
+    // 1. durum
+   /*
+    String secretKey = "123456789Abc";
+    String issuer = "KurumAdi";
+    Long exDate = 1000L * 60 * 5; // 5 dakika
+    */
+
+   // 2. durum
+
+    @Value("${authservice.secrets.key}")
+    String secretKey;
+
+    @Value("${authservice.secrets.issuer}")
+    String issuer;
+
+    @Value("${authservice.secrets.exDate}")
+    Long exDate;
 
 
     // Token uretme
