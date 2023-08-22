@@ -14,5 +14,4 @@ public class UserProfileSaveRequestDto {
     private Long authid;
     private String username;
     private String email;
-
 }

@@ -3,8 +3,10 @@ package com.mimaraslan.service;
 
 import com.mimaraslan.dto.request.DoLoginRequestDto;
 import com.mimaraslan.dto.request.DoRegisterRequestDto;
+import com.mimaraslan.dto.request.UserProfileSaveRequestDto;
 import com.mimaraslan.exception.AuthServiceException;
 import com.mimaraslan.exception.ErrorType;
+import com.mimaraslan.manager.IUserProfileManager;
 import com.mimaraslan.mapper.IAuthMapper;
 import com.mimaraslan.repository.IAuthRepository;
 import com.mimaraslan.repository.entity.Auth;
@@ -22,12 +24,15 @@ public class AuthService extends ServiceManager <Auth, Long> {
 
     private final JwtTokenManager jwtTokenManager;
 
+    private final IUserProfileManager userProfileManager;
 
 
-    public AuthService(IAuthRepository repository, JwtTokenManager jwtTokenManager) {
+
+    public AuthService(IAuthRepository repository, JwtTokenManager jwtTokenManager, IUserProfileManager userProfileManager) {
         super(repository);
         this.repository = repository;
         this.jwtTokenManager = jwtTokenManager;
+        this.userProfileManager = userProfileManager;
     }
 
     public String doLogin(DoLoginRequestDto dto) {
@@ -52,6 +57,11 @@ public class AuthService extends ServiceManager <Auth, Long> {
         // TODO - DİĞER SERVİCE GİDİLECEK
         //  http://localhost:9093/user/save
 
+        userProfileManager.save(UserProfileSaveRequestDto.builder()
+                        .authid(auth.getId())
+                        .username(auth.getUsername())
+                        .email(auth.getEmail())
+                .build() );
 
 
         return auth;

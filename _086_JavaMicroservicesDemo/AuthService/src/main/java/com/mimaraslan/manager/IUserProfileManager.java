@@ -14,6 +14,9 @@ import static com.mimaraslan.constant.EndPoints.SAVE;
         decode404 = true)
 public interface IUserProfileManager {
 
+
+    //    http://localhost:9093/user/save
     @PostMapping(SAVE)
     ResponseEntity<Boolean> save(@RequestBody UserProfileSaveRequestDto dto);
+
 }
