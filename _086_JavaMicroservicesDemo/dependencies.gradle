@@ -33,5 +33,6 @@ ext {
             jwt                             : "com.auth0:java-jwt:$versions.jwt",
             springCloudOpenfeign            : "org.springframework.cloud:spring-cloud-starter-openfeign:$versions.springCloudOpenfeign"
 
+
     ]
 }

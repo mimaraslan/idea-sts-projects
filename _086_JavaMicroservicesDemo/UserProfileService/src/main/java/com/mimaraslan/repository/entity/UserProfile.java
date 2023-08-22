@@ -4,6 +4,7 @@ package com.mimaraslan.repository.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 @Builder // bir sınıftan nesne türetmeyi sağlar.
 @Data //get set metodlarını otomatik tanımlar.
@@ -19,6 +20,7 @@ public class UserProfile {
     private  Long id;
 
     private Long authid;
+    
     private String username;
     private String email;
 
