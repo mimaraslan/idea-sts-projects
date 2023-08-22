@@ -20,6 +20,14 @@ public class UserProfileService extends ServiceManager <UserProfile, Long> {
 
 
     public Boolean saveDto(UserProfileSaveRequestDto dto) {
+        /*
+         {
+         "authid": 2,
+         "username": "Abdullah",
+         "email": "Abdullah@gmail.com"
+         }
+         */
+
        /*
         UserProfile userProfile = new UserProfile();
         userProfile.setAuthid(dto.getAuthid());
