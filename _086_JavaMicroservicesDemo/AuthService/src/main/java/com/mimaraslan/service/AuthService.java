@@ -56,14 +56,15 @@ public class AuthService extends ServiceManager <Auth, Long> {
 
         // TODO - DİĞER SERVİCE GİDİLECEK
         //  http://localhost:9093/user/save
-
+/*
         userProfileManager.save(UserProfileSaveRequestDto.builder()
                         .authid(auth.getId())
                         .username(auth.getUsername())
                         .email(auth.getEmail())
                 .build() );
+*/
 
-
+        userProfileManager.save(IAuthMapper.INSTANCE.fromAuth(auth));
         return auth;
     }
 
