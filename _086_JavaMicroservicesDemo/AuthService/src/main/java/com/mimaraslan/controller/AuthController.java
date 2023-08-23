@@ -81,4 +81,10 @@ public class AuthController {
         return ResponseEntity.ok(authService.findAll(token));
     }
 
+
+    // http://localhost:9090/auth/hi
+    @GetMapping("/hi")
+    public String hi() {
+        return "Hi: Auth Service";
+    }
 }
