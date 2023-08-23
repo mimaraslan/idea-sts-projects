@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: ${GIT_MICROSERVICE_PROJECT}
+          uri: ${GIT_CONFIG_PROJECT}
           default-label: main
           skip-ssl-validation: true
           username: ${GIT_USERNAME}
