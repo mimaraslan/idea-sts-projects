@@ -73,6 +73,7 @@ allprojects {
         implementation libs.swaggerApi
         implementation libs.jwt
         implementation libs.springCloudOpenfeign
+        implementation libs.springCloudConfigClient
     }
 }
 

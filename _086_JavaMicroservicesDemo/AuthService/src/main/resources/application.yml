@@ -1,20 +1,36 @@
-server.port: 9090
-
 spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    username:  ${POSTGRES_USERNAME}
-    password: ${POSTGRES_PASSWORD}
-    url: jdbc:postgresql://localhost:5432/JavaMicroAuthDB
-  jpa:
-    hibernate:
-      ddl-auto: update
+  cloud:
+    config:
+      uri: http://localhost:8888
+  config:
+    import: "configserver:"
+  application:
+    name: auth-service-application
 
-authservice:
-  secrets:
-    key: ${JAVA_SECRETKEY}
-    issuer: ${JAVA_ISSUER}
-    exDate: 300000
+
+
+
+
+
+
+
+#server.port: 9090
+#
+#spring:
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    username:  ${POSTGRES_USERNAME}
+#    password: ${POSTGRES_PASSWORD}
+#    url: jdbc:postgresql://localhost:5432/JavaMicroAuthDB
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#
+#authservice:
+#  secrets:
+#    key: ${JAVA_SECRETKEY}
+#    issuer: ${JAVA_ISSUER}
+#    exDate: 300000
 
 
 

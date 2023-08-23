@@ -7,4 +7,5 @@ dependencies {
      */
     implementation libs.postgreSql
     implementation libs.springBootDataJpa
+    implementation libs.springCloudConfigClient
 }
