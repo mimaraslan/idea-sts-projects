@@ -4,4 +4,5 @@ include 'UserProfileService'
 include 'ProductService'
 include 'SaleService'
 include 'ConfigServer'
+include 'ConfigServerGit'
 
