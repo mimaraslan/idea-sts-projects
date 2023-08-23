@@ -11,7 +11,6 @@ import java.util.List;
 
 import static com.mimaraslan.constant.EndPoints.*;
 
-
 //  http://localhost:9093/user
 @RequiredArgsConstructor
 @RestController
@@ -30,6 +29,12 @@ public class UserProfileController {
     @GetMapping(GETALL)
     public ResponseEntity<List<UserProfile>> findAll () {
         return ResponseEntity.ok(userProfileService.findAll());
+    }
+
+    // http://localhost:9093/user/hi
+    @GetMapping("/hi")
+    public String hi() {
+        return "Hi: UserProfile Service";
     }
 
 }
