@@ -74,6 +74,8 @@ allprojects {
         implementation libs.jwt
         implementation libs.springCloudOpenfeign
         implementation libs.springCloudConfigClient
+        implementation libs.springSleuthZipkin
+        implementation libs.springSleuth
     }
 }
 

@@ -1,7 +1,15 @@
 server:
   port: 80
+  error:
+    whitelabel:
+      enabled: false
 
 spring:
+  zipkin:
+    enabled: true
+    base-url: http://localhost:9411
+    service:
+      name: api-gateway
   cloud:
     gateway:
       default-filters:
