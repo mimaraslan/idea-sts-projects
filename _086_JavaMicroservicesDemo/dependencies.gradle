@@ -3,13 +3,14 @@ ext {
      * Bağımlılıkları versiyonlama işlemleri:
      */
     versions = [
-            springBoot     : "2.7.14",
-            lombok         : "1.18.28",
-            mapStruct      : "1.5.5.Final",
-            postgreSql     : "42.6.0",
-            swaggerApi     : "1.6.15",
-            jwt            : "4.4.0",
-            springCloud    : "3.1.8"
+            springBoot          : "2.7.14",
+            lombok              : "1.18.28",
+            mapStruct           : "1.5.5.Final",
+            postgreSql          : "42.6.0",
+            swaggerApi          : "1.6.15",
+            jwt                 : "4.4.0",
+            springCloud         : "3.1.8",
+            springCircuitBreaker: "2.1.7"
     ]
 
     /**
@@ -35,6 +36,8 @@ ext {
             springCloudConfigServer         : "org.springframework.cloud:spring-cloud-config-server:$versions.springCloud",
             springCloudStarterConfig        : "org.springframework.cloud:spring-cloud-starter-config:$versions.springCloud",
             springCloudConfigClient         : "org.springframework.cloud:spring-cloud-config-client:$versions.springCloud",
-            springCloudGateway              : "org.springframework.cloud:spring-cloud-starter-gateway:$versions.springCloud"
+            springCloudGateway              : "org.springframework.cloud:spring-cloud-starter-gateway:$versions.springCloud",
+            springCircuitBreaker            : "org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j:$versions.springCircuitBreaker",
+            springCircuitBreakerReactor     : "org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j:$versions.springCircuitBreaker"
     ]
 }
