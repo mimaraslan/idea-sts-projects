@@ -4,6 +4,7 @@ services:
 
   mongo:
     image: mongo
+    container_name: my-mongo
     restart: always
     ports:
       - "27017:27017"
@@ -22,7 +23,7 @@ services:
   # docker run -d -p 9411:9411 openzipkin/zipkin
   zipkin:
     image: openzipkin/zipkin:latest
-    container_name: my-zipkin123
+    container_name: my-zipkin
     ports:
       - "9411:9411"
     deploy:
@@ -37,6 +38,7 @@ services:
 # docker run -d --name elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.11.3
   elasticsearch:
     image: elasticsearch:7.17.3
+    container_name: my-elasticsearch
     ports:
       - "9200:9200"
       - "9300:9300"
