@@ -12,6 +12,9 @@ spring:
       name: api-gateway
   cloud:
     gateway:
+#      httpclient:
+#        ssl:
+#          use-insecure-trust-manager: true
       default-filters:
         #        http://localhost/auth/findById/1
         #        /(?<segment>.*) :auth/findById/1

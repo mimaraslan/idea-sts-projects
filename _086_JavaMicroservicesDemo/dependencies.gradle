@@ -10,7 +10,8 @@ ext {
             swaggerApi          : "1.6.15",
             jwt                 : "4.4.0",
             springCloud         : "3.1.8",
-            springCircuitBreaker: "2.1.7"
+            springCircuitBreaker: "2.1.7",
+            thymeleaf:  "3.1.2"
     ]
 
     /**
@@ -41,9 +42,7 @@ ext {
             springCircuitBreakerReactor     : "org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j:$versions.springCircuitBreaker",
             springSleuthZipkin              : "org.springframework.cloud:spring-cloud-sleuth-zipkin:$versions.springCloud",
             springSleuth                    : "org.springframework.cloud:spring-cloud-starter-sleuth:$versions.springCloud"
-
-
-
+        //    thymeleaf                       : "org.springframework.boot:spring-boot-starter-thymeleaf:$versions.thymeleaf"
 
     ]
 }

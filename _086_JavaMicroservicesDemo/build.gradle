@@ -76,6 +76,7 @@ allprojects {
         implementation libs.springCloudConfigClient
         implementation libs.springSleuthZipkin
         implementation libs.springSleuth
+//      implementation libs.thymeleaf
     }
 }
 

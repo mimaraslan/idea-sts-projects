@@ -63,3 +63,8 @@
 * Veya container'in o anki halinden yeni bir imaj dosyası oluşturabilirsiniz.
 
 
+
+
+docker run -d -p 9411:9411 --memory=512m openzipkin/zipkin
+
+
