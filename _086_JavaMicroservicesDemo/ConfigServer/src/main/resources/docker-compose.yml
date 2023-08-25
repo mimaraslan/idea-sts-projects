@@ -2,25 +2,25 @@ version: '3.1'
 
 services:
 
-  mongo:
-    image: mongo
-    container_name: my-mongo
-    restart: always
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: 123456789
-    deploy:
-      resources:
-        limits:
-          cpus: "0.50"
-          memory: 768M
-        reservations:
-          cpus: "0.25"
-          memory: 512M
+#  mongo:
+#    image: mongo
+#    container_name: my-mongo
+#    restart: always
+#    ports:
+#      - "27017:27017"
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: 123456789
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: "0.50"
+#          memory: 768M
+#        reservations:
+#          cpus: "0.25"
+#          memory: 512M
 
-  # docker run -d -p 9411:9411 openzipkin/zipkin
+# docker run -d -p 9411:9411 --name my-zipkin openzipkin/zipkin
   zipkin:
     image: openzipkin/zipkin:latest
     container_name: my-zipkin
@@ -35,7 +35,7 @@ services:
           cpus: "0.25"
           memory: 128M
 
-# docker run -d --name elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.11.3
+# docker run -d --name my-elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.11.3
   elasticsearch:
     image: elasticsearch:7.17.3
     container_name: my-elasticsearch
@@ -52,3 +52,6 @@ services:
         reservations:
           cpus: "0.25"
           memory: 256M
+
+
+#  docker run -d --hostname my-rabbit --name my-rabbitmq -e RABBITMQ_DEFAULT_USER=user -e RABBITMQ_DEFAULT_PASS=123456789    -p 15672:15672   -p 5672:5672    --memory=128m   rabbitmq:3-management

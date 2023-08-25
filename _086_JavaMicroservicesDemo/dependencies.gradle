@@ -27,6 +27,8 @@ ext {
     libs = [
             springBootWeb                   : "org.springframework.boot:spring-boot-starter-web:$versions.springBoot",
             springBootDataJpa               : "org.springframework.boot:spring-boot-starter-data-jpa:$versions.springBoot",
+            springBootAmqp                  : "org.springframework.boot:spring-boot-starter-amqp:$versions.springBoot",
+
             postgreSql                      : "org.postgresql:postgresql:$versions.postgreSql",
             lombok                          : "org.projectlombok:lombok:$versions.lombok",
             mapStruct                       : "org.mapstruct:mapstruct:$versions.mapStruct",
@@ -41,8 +43,11 @@ ext {
             springCircuitBreaker            : "org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j:$versions.springCircuitBreaker",
             springCircuitBreakerReactor     : "org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j:$versions.springCircuitBreaker",
             springSleuthZipkin              : "org.springframework.cloud:spring-cloud-sleuth-zipkin:$versions.springCloud",
-            springSleuth                    : "org.springframework.cloud:spring-cloud-starter-sleuth:$versions.springCloud"
-        //    thymeleaf                       : "org.springframework.boot:spring-boot-starter-thymeleaf:$versions.thymeleaf"
+            springSleuth                    : "org.springframework.cloud:spring-cloud-starter-sleuth:$versions.springCloud",
+
+
+
+
 
     ]
 }

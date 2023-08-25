@@ -3,11 +3,12 @@ package com.mimaraslan.service;
 
 import com.mimaraslan.dto.request.DoLoginRequestDto;
 import com.mimaraslan.dto.request.DoRegisterRequestDto;
-import com.mimaraslan.dto.request.UserProfileSaveRequestDto;
 import com.mimaraslan.exception.AuthServiceException;
 import com.mimaraslan.exception.ErrorType;
 import com.mimaraslan.manager.IUserProfileManager;
 import com.mimaraslan.mapper.IAuthMapper;
+import com.mimaraslan.rabbitmq.model.SaveAuthModel;
+import com.mimaraslan.rabbitmq.producer.CreateUserProducer;
 import com.mimaraslan.repository.IAuthRepository;
 import com.mimaraslan.repository.entity.Auth;
 import com.mimaraslan.utility.JwtTokenManager;
@@ -27,12 +28,18 @@ public class AuthService extends ServiceManager <Auth, Long> {
     private final IUserProfileManager userProfileManager;
 
 
+    private  final CreateUserProducer createUserProducer;
 
-    public AuthService(IAuthRepository repository, JwtTokenManager jwtTokenManager, IUserProfileManager userProfileManager) {
+
+    public AuthService(IAuthRepository repository,
+                       JwtTokenManager jwtTokenManager,
+                       IUserProfileManager userProfileManager,
+                       CreateUserProducer createUserProducer) {
         super(repository);
         this.repository = repository;
         this.jwtTokenManager = jwtTokenManager;
         this.userProfileManager = userProfileManager;
+        this.createUserProducer = createUserProducer;
     }
 
     public String doLogin(DoLoginRequestDto dto) {
@@ -54,7 +61,7 @@ public class AuthService extends ServiceManager <Auth, Long> {
 
         save(auth);
 
-        // TODO - DİĞER SERVİCE GİDİLECEK
+        // DİĞER SERVİCE GİDİLİYOR
         //  http://localhost:9093/user/save
 /*
         userProfileManager.save(UserProfileSaveRequestDto.builder()
@@ -64,7 +71,16 @@ public class AuthService extends ServiceManager <Auth, Long> {
                 .build() );
 */
 
-        userProfileManager.save(IAuthMapper.INSTANCE.fromAuth(auth));
+//        userProfileManager.save(IAuthMapper.INSTANCE.fromAuth(auth));
+
+
+        // Mesajı RabbitMQ'ya gönderdik.
+        createUserProducer.convertAndSend(SaveAuthModel.builder()
+                .authid(auth.getId())
+                .username(auth.getUsername())
+                .email(auth.getEmail())
+                .build());
+
         return auth;
     }
 
