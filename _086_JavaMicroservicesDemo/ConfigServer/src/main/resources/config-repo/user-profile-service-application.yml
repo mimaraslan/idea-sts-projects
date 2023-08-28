@@ -29,3 +29,8 @@ authservice:
     key: ${JAVA_SECRETKEY}
     issuer: ${JAVA_ISSUER}
     exDate: 300000
+
+user-profile-service:
+  redis:
+    hostname: localhost
+    port: 6379

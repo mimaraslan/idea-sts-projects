@@ -1,24 +1,14 @@
 version: '3.1'
 
-services:
+networks:
+  default:
+    driver: bridge
 
-#  mongo:
-#    image: mongo
-#    container_name: my-mongo
-#    restart: always
-#    ports:
-#      - "27017:27017"
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: root
-#      MONGO_INITDB_ROOT_PASSWORD: 123456789
-#    deploy:
-#      resources:
-#        limits:
-#          cpus: "0.50"
-#          memory: 768M
-#        reservations:
-#          cpus: "0.25"
-#          memory: 512M
+volumes:
+  cache:
+    driver: local
+
+services:
 
 # docker run -d -p 9411:9411 --name my-zipkin openzipkin/zipkin
   zipkin:
@@ -35,23 +25,34 @@ services:
           cpus: "0.25"
           memory: 128M
 
-# docker run -d --name my-elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.11.3
-  elasticsearch:
-    image: elasticsearch:7.17.3
-    container_name: my-elasticsearch
-    ports:
-      - "9200:9200"
-      - "9300:9300"
+  #  docker run -d --hostname my-rabbit --name my-rabbitmq -e RABBITMQ_DEFAULT_USER=user -e RABBITMQ_DEFAULT_PASS=123456789   -p 15672:15672  -p 5672:5672   --memory=128m   rabbitmq:3-management
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: my-rabbitmq
+    hostname: my-rabbit
     environment:
-      discovery.type: single-node
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=123456789
+    ports:
+      - "5672:5672"
+      - "15672:15672"
     deploy:
       resources:
         limits:
           cpus: "0.50"
-          memory: 512M
+          memory: 256M
         reservations:
           cpus: "0.25"
-          memory: 256M
+          memory: 128M
 
 
-#  docker run -d --hostname my-rabbit --name my-rabbitmq -e RABBITMQ_DEFAULT_USER=user -e RABBITMQ_DEFAULT_PASS=123456789    -p 15672:15672   -p 5672:5672    --memory=128m   rabbitmq:3-management
+
+
+#  docker run --name my-redis -p 6379:6379 -d redis
+#  docker run --name my-redis -p 6379:6379  --memory=128m  -d redis
+  redis:
+    image: redis:latest
+    container_name: my-redis
+    restart: always
+    ports:
+      - '6379:6379'

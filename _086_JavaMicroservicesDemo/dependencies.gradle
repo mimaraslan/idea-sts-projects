@@ -28,6 +28,7 @@ ext {
             springBootWeb                   : "org.springframework.boot:spring-boot-starter-web:$versions.springBoot",
             springBootDataJpa               : "org.springframework.boot:spring-boot-starter-data-jpa:$versions.springBoot",
             springBootAmqp                  : "org.springframework.boot:spring-boot-starter-amqp:$versions.springBoot",
+            springDataRedis                 : "org.springframework.boot:spring-boot-starter-data-redis:$versions.springBoot",
 
             postgreSql                      : "org.postgresql:postgresql:$versions.postgreSql",
             lombok                          : "org.projectlombok:lombok:$versions.lombok",
@@ -35,6 +36,7 @@ ext {
             mapStructProcessor              : "org.mapstruct:mapstruct-processor:$versions.mapStruct",
             swaggerApi                      : "org.springdoc:springdoc-openapi-ui:$versions.swaggerApi",
             jwt                             : "com.auth0:java-jwt:$versions.jwt",
+
             springCloudOpenfeign            : "org.springframework.cloud:spring-cloud-starter-openfeign:$versions.springCloud",
             springCloudConfigServer         : "org.springframework.cloud:spring-cloud-config-server:$versions.springCloud",
             springCloudStarterConfig        : "org.springframework.cloud:spring-cloud-starter-config:$versions.springCloud",
