@@ -15,3 +15,8 @@ EXPOSE 8888
 
 # Container icin projedeki JAR dosyasi  calistiriliyor
 ENTRYPOINT ["java", "-jar", "application.jar"]
+
+
+# Docker image haline getirme komutu
+# docker build --build-arg JAR_FILE=build/libs/ConfigServer-v.0.0.1.jar -t mimaraslan/config-server:v001 .
+
