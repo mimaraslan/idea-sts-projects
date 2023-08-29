@@ -6,4 +6,5 @@ include 'SaleService'
 include 'ConfigServer'
 include 'ConfigServerGit'
 include 'ApiGatewayService'
+include 'ElasticService'
 
