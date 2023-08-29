@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class HelloController {
 
-    // http://localhost:9090
+    // http://localhost:9100
     @GetMapping
     public String hello() {
-        return "Auth Service";
+        return "Elastic Service";
     }
 
 
-    // http://localhost:9090/info
+    // http://localhost:9100/info
     @GetMapping("/info")
     public String info() {
-        return "INFO: Auth Service";
+        return "INFO: Elastic Service";
     }
 
 }

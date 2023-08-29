@@ -17,5 +17,5 @@ public interface IService<T,ID> {
 
 
     Optional<T> findById(ID id);
-    List<T> findAll();
+    Iterable<T> findAll();
 }

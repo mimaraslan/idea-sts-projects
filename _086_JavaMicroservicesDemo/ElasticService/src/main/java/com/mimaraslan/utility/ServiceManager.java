@@ -1,14 +1,14 @@
 package com.mimaraslan.utility;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 public class ServiceManager<T,ID> implements IService<T,ID>{
 
-    private final JpaRepository<T,ID> repository;
-    public ServiceManager(JpaRepository<T, ID> repository) {
+    private final ElasticsearchRepository<T,ID> repository;
+    public ServiceManager(ElasticsearchRepository<T, ID> repository) {
         this.repository = repository;
     }
 
@@ -40,7 +40,7 @@ public class ServiceManager<T,ID> implements IService<T,ID>{
         return repository.findById(id);
     }
     @Override
-    public List<T> findAll() {
+    public Iterable<T> findAll() {
         return repository.findAll();
     }
 

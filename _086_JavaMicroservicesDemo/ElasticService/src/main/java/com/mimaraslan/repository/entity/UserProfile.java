@@ -1,28 +1,28 @@
 package com.mimaraslan.repository.entity;
 
-
 import lombok.*;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 @Builder // bir sınıftan nesne türetmeyi sağlar.
 @Data //get set metodlarını otomatik tanımlar.
 @NoArgsConstructor //boş constructor oluşturur.
 @AllArgsConstructor //dolu constructor oluşturur.
 @ToString
-@Entity
-@Table(name = "tbl_auth")
-public class Auth {
+@Document(indexName = "tbl_user_profile")
+public class UserProfile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Long id;
 
-    @Column(unique = true)
+    private Long userProfileId;
+    private Long authid;
     private String username;
     private String email;
-    private String password;
-
+    private String ad;
+    private String address;
+    private String phone;
+    private String avatar;
     private  Long createAt;
     private boolean state;
 
