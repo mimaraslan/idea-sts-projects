@@ -16,6 +16,8 @@ public class CreateUserConsumer {
 
     @RabbitListener(queues = "queue-auth")
     public void createFromQueue(SaveAuthModel model){
+        userProfileService.saveRabbit(model);
+       /*
         userProfileService.save(
                 UserProfile.builder()
                         .authid(model.getAuthid())
@@ -23,6 +25,7 @@ public class CreateUserConsumer {
                         .email(model.getEmail())
                         .build()
         );
+        */
     }
 
 }

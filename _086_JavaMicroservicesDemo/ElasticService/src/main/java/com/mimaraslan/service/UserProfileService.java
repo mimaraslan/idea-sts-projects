@@ -17,17 +17,13 @@ public class UserProfileService extends ServiceManager <UserProfile, Long> {
         this.iUserProfileRepository = iUserProfileRepository;
     }
 
+    public void saveDto(UserProfileSaveRequestDto dto) {
 
-    public Boolean saveDto(UserProfileSaveRequestDto dto) {
-
-        if(!iUserProfileRepository.existsUserProfilesById(dto.getId())) {
+        /**
+         * Eğer userprofileid daha önceden kayıtlıysa, kaydetmesini engelle.
+         */
+      //  if(!iUserProfileRepository.existsUserProfileById(dto.getId()))
             save(IUserProfileMapper.INSTANCE.toUserProfile(dto));
-            return  true;
-        }
-        return  false;
-
     }
-
-
 
 }

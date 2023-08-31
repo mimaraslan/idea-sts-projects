@@ -1,7 +1,9 @@
 package com.mimaraslan.service;
 
 import com.mimaraslan.dto.request.UserProfileSaveRequestDto;
+import com.mimaraslan.manager.IElasticServiceManager;
 import com.mimaraslan.mapper.IUserProfileMapper;
+import com.mimaraslan.rabbitmq.model.SaveAuthModel;
 import com.mimaraslan.repository.IUserProfileRepository;
 import com.mimaraslan.repository.entity.UserProfile;
 import com.mimaraslan.utility.ServiceManager;
@@ -10,27 +12,21 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserProfileService extends ServiceManager <UserProfile, Long> {
+public class UserProfileService extends ServiceManager<UserProfile, Long> {
 
+    private final IUserProfileRepository userProfileRepository;
+    private final IElasticServiceManager elasticServiceManager;
 
-    private final IUserProfileRepository repository;
-
-    public UserProfileService(IUserProfileRepository repository) {
-        super(repository);
-        this.repository = repository;
+    public UserProfileService(IUserProfileRepository userProfileRepository, IElasticServiceManager elasticServiceManager) {
+        super(userProfileRepository);
+        this.userProfileRepository = userProfileRepository;
+        this.elasticServiceManager = elasticServiceManager;
     }
 
 
     public Boolean saveDto(UserProfileSaveRequestDto dto) {
-        /*
-         {
-         "authid": 2,
-         "username": "Abdullah",
-         "email": "Abdullah@gmail.com"
-         }
-         */
 
-       /*
+        /*
         UserProfile userProfile = new UserProfile();
         userProfile.setAuthid(dto.getAuthid());
         userProfile.setUsername(dto.getUsername());
@@ -56,12 +52,19 @@ public class UserProfileService extends ServiceManager <UserProfile, Long> {
         */
 
         save(IUserProfileMapper.INSTANCE.toUserProfile(dto));
-        return  true;
+        return true;
+    }
+
+
+    public void saveRabbit(SaveAuthModel model) {
+        UserProfile userProfile = IUserProfileMapper.INSTANCE.toUserProfile(model);
+        save(userProfile);
+        elasticServiceManager.addUser(userProfile);
     }
 
 
     @Cacheable(value = "getUpperCase")
-    public String getUpperCase(String firstName){
+    public String getUpperCase(String firstName) {
 
         try {
             Thread.sleep(3000);
@@ -73,8 +76,8 @@ public class UserProfileService extends ServiceManager <UserProfile, Long> {
     }
 
 
-    @CacheEvict(value ="getUpperCase", allEntries = true)
-    public void clearCache(){
+    @CacheEvict(value = "getUpperCase", allEntries = true)
+    public void clearCache() {
         System.out.println("getUpperCase için oluşlturulan Cache değerleri silindi.");
     }
 

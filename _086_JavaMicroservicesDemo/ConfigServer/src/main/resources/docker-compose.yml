@@ -56,20 +56,36 @@ services:
       - '6379:6379'
 
 
-# docker run -d --name my-elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.11.3
-  elasticsearch:
-    image: elasticsearch:7.17.3
-    container_name: my-elasticsearch
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    environment:
-      discovery.type: single-node
-    deploy:
-      resources:
-        limits:
-          cpus: "0.50"
-          memory: 512M
-        reservations:
-          cpus: "0.25"
-          memory: 256M
+# --- https://www.elastic.co/guide/en/kibana/7.17/docker.html
+#  docker network create my-elastic
+#  docker pull docker.elastic.co/elasticsearch/elasticsearch:7.17.12
+#  docker run --name my-elasticsearch --net my-elastic -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.12
+#
+#  docker pull docker.elastic.co/kibana/kibana:7.17.12
+#  docker run --name my-kibana --net elastic -p 127.0.0.1:5601:5601 -e "ELASTICSEARCH_HOSTS=http://my-kibana:9200" docker.elastic.co/kibana/kibana:7.17.12
+
+#  docker stop my-elasticsearch
+#  docker stop my-kibana
+#
+#  docker network rm my-elastic
+#  docker rm my-elasticsearch
+#  docker rm my-kibana
+
+#  docker run -d --name my-elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.17.3
+#  docker run -d --name my-elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.17.3
+#  elasticsearch:
+#    image: elasticsearch:7.17.12
+#    container_name: my-elasticsearch
+#    ports:
+#      - "9200:9200"
+#      - "9300:9300"
+#    environment:
+#      discovery.type: single-node
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: "0.50"
+#          memory: 512M
+#        reservations:
+#          cpus: "0.25"
+#          memory: 256M

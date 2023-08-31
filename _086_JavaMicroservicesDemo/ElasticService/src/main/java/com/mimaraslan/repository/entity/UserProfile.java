@@ -16,6 +16,7 @@ public class UserProfile {
     private Long id;
 
     private Long userProfileId;
+
     private Long authid;
     private String username;
     private String email;
@@ -23,6 +24,7 @@ public class UserProfile {
     private String address;
     private String phone;
     private String avatar;
+
     private  Long createAt;
     private boolean state;
 

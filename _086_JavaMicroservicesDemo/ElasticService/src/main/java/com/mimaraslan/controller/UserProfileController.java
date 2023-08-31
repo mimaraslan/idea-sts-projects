@@ -20,16 +20,23 @@ public class UserProfileController {
     private final UserProfileService userProfileService;
 
    //  http://localhost:9100/elastic/user/save
-   @PostMapping(SAVE)
+  /* @PostMapping(SAVE)
    public ResponseEntity<Boolean> save(@RequestBody UserProfileSaveRequestDto dto){
        return ResponseEntity.ok(userProfileService.saveDto(dto));
-   }
+   }*/
+
+    @PostMapping(SAVE)
+    public ResponseEntity<Void> addUser(@RequestBody UserProfileSaveRequestDto dto){
+        userProfileService.saveDto(dto);
+        return ResponseEntity.ok().build();
+    }
 
     //  http://localhost:9100/elastic/user/getall
     @GetMapping(GETALL)
-    public ResponseEntity<Iterable<UserProfile>> findAll () {
+    public ResponseEntity<Iterable<UserProfile>> getAll(){
         return ResponseEntity.ok(userProfileService.findAll());
     }
+
 
     // http://localhost:9100/elastic/user/hi
     @GetMapping("/hi")

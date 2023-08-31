@@ -9,6 +9,6 @@ public interface IUserProfileRepository extends ElasticsearchRepository<UserProf
 
 
     // TODO existsUserProfilesId
-    boolean existsUserProfilesById(Long id);
+    boolean existsUserProfileById(Long id);
 
 }

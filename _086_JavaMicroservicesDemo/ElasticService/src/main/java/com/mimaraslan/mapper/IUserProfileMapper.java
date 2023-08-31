@@ -12,7 +12,6 @@ public interface IUserProfileMapper {
 
     IUserProfileMapper INSTANCE= Mappers.getMapper(IUserProfileMapper.class);
 
-    @Mapping(target = "userProfileId",  source = "id")
+    @Mapping(target = "userProfileId", source = "id")
     UserProfile toUserProfile(final UserProfileSaveRequestDto dto);
-
 }

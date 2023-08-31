@@ -2,6 +2,8 @@ package com.mimaraslan.manager;
 
 
 import com.mimaraslan.dto.request.UserProfileSaveRequestDto;
+import com.mimaraslan.repository.entity.UserProfile;
+import org.mapstruct.Mapping;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,4 +21,6 @@ public interface IUserProfileManager {
     @PostMapping(SAVE)
     ResponseEntity<Boolean> save(@RequestBody UserProfileSaveRequestDto dto);
 
+   // @Mapping(target = "userProfileId",source = "id")
+   // UserProfile toUserProfile(final UserProfileSaveRequestDto dto);
 }
