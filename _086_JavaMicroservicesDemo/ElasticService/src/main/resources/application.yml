@@ -6,3 +6,12 @@ spring:
     import: "configserver:"
   application:
     name: elastic-service-application
+
+#logging:
+#  level:
+#    root: trace
+#  file:
+#    name: my-elastic.log
+#  logback:
+#    rollingpolicy:
+#      max-file-size: 20MB
