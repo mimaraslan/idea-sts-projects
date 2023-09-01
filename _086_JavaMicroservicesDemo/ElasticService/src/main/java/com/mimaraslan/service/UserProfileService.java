@@ -1,10 +1,15 @@
 package com.mimaraslan.service;
 
+import com.mimaraslan.dto.request.PagingRequestDto;
 import com.mimaraslan.dto.request.UserProfileSaveRequestDto;
 import com.mimaraslan.mapper.IUserProfileMapper;
 import com.mimaraslan.repository.IUserProfileRepository;
 import com.mimaraslan.repository.entity.UserProfile;
 import com.mimaraslan.utility.ServiceManager;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,5 +30,37 @@ public class UserProfileService extends ServiceManager <UserProfile, Long> {
       //  if(!iUserProfileRepository.existsUserProfileById(dto.getId()))
             save(IUserProfileMapper.INSTANCE.toUserProfile(dto));
     }
+
+
+    public Page<UserProfile> findAll(PagingRequestDto dto){
+
+        Pageable pageable = null;
+        Sort sort = null;
+
+        // FIXME "ASC" "DESC" kontrolu yapılacak.
+        if (dto.getSortParameter()!=null){
+            // Ternary //  ŞART   ? SAĞLANIRSA : SAĞLANMAZSA ;
+            String direction =  dto.getDirection()=="ASC" ? "ASC"  : dto.getDirection();
+            sort = Sort.by(Sort.Direction.fromString(direction), dto.getSortParameter());
+        }
+
+        // FIXME
+        Integer pageSize = dto.getPageSize() == null ? 10 :    dto.getPageSize() < 1  ? 10:  dto.getPageSize()     ;
+
+        // hem sırlama hem de sayfalama seçildi.
+        if(sort !=null  &&  dto.getCurrentPage()!=null){
+
+            pageable = PageRequest.of(dto.getCurrentPage(), pageSize, sort);
+
+        } else  if(sort ==null  &&  dto.getCurrentPage() !=null){
+            pageable = PageRequest.of(dto.getCurrentPage(), pageSize);
+
+        } else {
+            pageable = PageRequest.of(0, pageSize);
+        }
+
+        return iUserProfileRepository.findAll(pageable);
+    }
+
 
 }

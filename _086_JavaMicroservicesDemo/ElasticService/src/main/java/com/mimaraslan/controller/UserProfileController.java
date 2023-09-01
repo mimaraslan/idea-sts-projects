@@ -1,9 +1,11 @@
 package com.mimaraslan.controller;
 
+import com.mimaraslan.dto.request.PagingRequestDto;
 import com.mimaraslan.dto.request.UserProfileSaveRequestDto;
 import com.mimaraslan.repository.entity.UserProfile;
 import com.mimaraslan.service.UserProfileService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,10 +40,21 @@ public class UserProfileController {
     }
 
 
+
+    //  http://localhost:9100/elastic/user/getallpage
+    @PostMapping(GETALLPAGE)
+    public ResponseEntity<Page<UserProfile>> getAll(@RequestBody PagingRequestDto dto){
+        return ResponseEntity.ok(userProfileService.findAll(dto));
+    }
+
+
+
     // http://localhost:9100/elastic/user/hi
     @GetMapping("/hi")
     public String hi() {
         return "Hi: UserProfile Service";
     }
+
+
 
 }

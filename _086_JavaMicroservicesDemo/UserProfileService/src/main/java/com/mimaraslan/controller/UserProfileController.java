@@ -37,14 +37,11 @@ public class UserProfileController {
         return "Hi: UserProfile Service";
     }
 
-
-
     // http://localhost:9093/user/getname
     @GetMapping("/getname")
     public ResponseEntity<String> getUpperCase(String firstName) {
         return ResponseEntity.ok(userProfileService.getUpperCase(firstName));
     }
-
 
     // http://localhost:9093/user/clearcache
     @GetMapping("/clearcache")
