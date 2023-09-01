@@ -9,8 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 import static com.mimaraslan.constant.EndPoints.*;
 
 //  http://localhost:9100/elastic/user
@@ -22,11 +20,6 @@ public class UserProfileController {
     private final UserProfileService userProfileService;
 
    //  http://localhost:9100/elastic/user/save
-  /* @PostMapping(SAVE)
-   public ResponseEntity<Boolean> save(@RequestBody UserProfileSaveRequestDto dto){
-       return ResponseEntity.ok(userProfileService.saveDto(dto));
-   }*/
-
     @PostMapping(SAVE)
     public ResponseEntity<Void> addUser(@RequestBody UserProfileSaveRequestDto dto){
         userProfileService.saveDto(dto);
@@ -48,13 +41,10 @@ public class UserProfileController {
     }
 
 
-
     // http://localhost:9100/elastic/user/hi
     @GetMapping("/hi")
     public String hi() {
         return "Hi: UserProfile Service";
     }
-
-
 
 }

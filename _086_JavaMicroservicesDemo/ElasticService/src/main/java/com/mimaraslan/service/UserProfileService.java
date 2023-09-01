@@ -37,14 +37,15 @@ public class UserProfileService extends ServiceManager <UserProfile, Long> {
         Pageable pageable = null;
         Sort sort = null;
 
-        // FIXME "ASC" "DESC" kontrolu yapılacak.
+        // FIXME "ASC" "DESC" if kontrolu yapılacak.
         if (dto.getSortParameter()!=null){
             // Ternary //  ŞART   ? SAĞLANIRSA : SAĞLANMAZSA ;
             String direction =  dto.getDirection()=="ASC" ? "ASC"  : dto.getDirection();
             sort = Sort.by(Sort.Direction.fromString(direction), dto.getSortParameter());
+
         }
 
-        // FIXME
+        // FIXME  if kontrolu yapılacak.
         Integer pageSize = dto.getPageSize() == null ? 10 :    dto.getPageSize() < 1  ? 10:  dto.getPageSize()     ;
 
         // hem sırlama hem de sayfalama seçildi.
