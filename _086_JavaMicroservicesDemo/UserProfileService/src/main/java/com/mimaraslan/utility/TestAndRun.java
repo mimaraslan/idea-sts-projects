@@ -22,20 +22,25 @@ public class TestAndRun {
     //Constructor metod çalıştıktan sonra çalışması istenen kodlar bu anotaation ile işaretlenmiş metodun içine yazılır.
     public void init() { //initialize (başlatma)
 
-        // new Thread(this::getUserProfileInfo).start();
         new Thread(() -> {
             getUserProfileInfo();
         }).start();
 
+        // new Thread(this::getUserProfileInfo).start();
+
     }
 
     private void getUserProfileInfo() {
+
         List<UserProfile> userProfileList = userProfileService.findAll(); // tüm userprofile datalarını bir liste aktardık.
+
         userProfileList.forEach(elasticServiceManager::addUser); // Eski verileri Postgre’den Elastic’e teker teker aktarma
-         /*
-         liste.forEach(x->{
+        
+/*
+        userProfileList.forEach(x->{
                       elasticServiceManager.addUser(x);
                   });
-         */
+        */
+
     }
 }

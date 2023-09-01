@@ -7,9 +7,9 @@ spring:
   application:
     name: elastic-service-application
 
-#logging:
-#  level:
-#    root: trace
+logging:
+  level:
+    root: info
 #  file:
 #    name: my-elastic.log
 #  logback:
