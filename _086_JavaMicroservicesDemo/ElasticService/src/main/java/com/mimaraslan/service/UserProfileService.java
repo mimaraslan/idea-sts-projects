@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserProfileService extends ServiceManager <UserProfile, Long> {
 
@@ -61,6 +63,11 @@ public class UserProfileService extends ServiceManager <UserProfile, Long> {
         }
 
         return iUserProfileRepository.findAll(pageable);
+    }
+
+
+    public Optional<UserProfile> findUserByAuthId(Long authid){
+        return iUserProfileRepository.findOptionalByAuthid(authid);
     }
 
 
