@@ -15,4 +15,5 @@ public interface IUserProfileRepository extends ElasticsearchRepository<UserProf
 
     Optional<UserProfile> findOptionalByAuthid(Long authid);
 
+    Optional<UserProfile>  deleteOptionalByAuthid(Long authid);
 }

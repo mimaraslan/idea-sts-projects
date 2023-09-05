@@ -66,5 +66,12 @@ public class UserProfileController {
     }
 
 
+    //  http://localhost:9100/elastic/user/delete
+    @DeleteMapping(DELETE)
+    public ResponseEntity<Void> deleteUser(@RequestBody Long authid){
+        userProfileService.deleteByAuthId(authid);
+        return ResponseEntity.ok().build();
+    }
+
 
 }
